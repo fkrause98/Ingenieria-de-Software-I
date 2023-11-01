@@ -1,0 +1,1520 @@
+
+
+----QUIT----(13 August 2023 19:14:09) CuisUniversity-5981.image priorSource: 5713367!
+
+----STARTUP---- (13 August 2023 19:14:10) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-5981.image!
+
+
+----QUIT----(13 August 2023 19:14:10) CuisUniversity-5981.image priorSource: 10197065!
+
+----STARTUP---- (30 October 2023 16:40:01) as /Users/fran/Downloads/macos64/CuisUniversity-5981.image!
+
+
+----End fileIn of /Users/fran/Documents/Facultad/Inge1/Ingenieria-de-Software-I/08-MarsRover-ElRegreso/MarsRover-WithHeading.st----!
+
+!testRun: #MarsRoverLoggerTest #test01LogIsEmptyString stamp: 'FK 10/30/2023 16:40:30'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test02LogWithPositionHasOneLineMovingNorth stamp: 'FK 10/30/2023 16:40:30'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test03LogWithPositionHasOneLineMovingSouth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test04LogWithPositionHasOneLineMovingWest stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test05LogWithPositionHasOneLineMovingEast stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test06LogWithPositionHasTwoLinesMovingFF stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test07LogWithHeadingsHasOneLineRotatingWest stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test08LogWithHeadingsHasOneLineRotatingEast stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test09LogWithHeadingsHasOneLineRotatingNorth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test10LogWithHeadingsHasOneLineRotatingSouth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test11LogWithHeadingsHasTwoLinesRotatingRL stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test12InitializeLoggerForPositionOnly stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test13InitializeLoggerForHeadingOnly stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverLoggerTest #test14InitializeLoggerForPositionAndHeading stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test01DoesNotMoveWhenNoCommand stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test02IsAtFailsForDifferentPosition stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test03IsAtFailsForDifferentHeading stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test04IncrementsYAfterMovingForwardWhenHeadingNorth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test06DecrementsYAfterMovingBackwardsWhenHeadingNorth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test07PointToEashAfterRotatingRightWhenHeadingNorth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test08PointsToWestAfterRotatingLeftWhenPointingNorth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test09DoesNotProcessInvalidCommand stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test10CanProcessMoreThanOneCommand stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test11IncrementsXAfterMovingForwareWhenHeadingEast stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test12DecrementsXAfterMovingBackwardWhenHeadingEast stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test13PointsToSouthAfterRotatingRightWhenHeadingEast stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test14PointsToNorthAfterRotatingLeftWhenPointingEast stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test15ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingSouth stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverTest #test16ForwardBackwardsAndRotateRightWorkAsExpectedWhenPointingWest stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test01WindowForPositionOnly stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test02WindowForPositionOnlyMoveFF stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test03WindowForHeadingOnly stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test04WindowForHeadingOnlyRotateRR stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test05WindowForPositionAndHeading stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+!testRun: #MarsRoverWindowTest #test06WindowForPositionAndHeadingAfterRF stamp: 'FK 10/30/2023 16:40:31'!
+PASSED!
+
+----STARTUP---- (30 October 2023 18:01:52) as /Users/fran/Downloads/macos64/CuisUniversity-5981.image!
+
+
+Object subclass: #Cart
+	instanceVariableNames: 'clientId password cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Cart category: 'TusLibros' stamp: 'FK 10/30/2023 19:27:53'!
+Object subclass: #Cart
+	instanceVariableNames: 'clientId password cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+TestCase subclass: #CartTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CartTest category: 'TusLibros' stamp: 'FK 10/30/2023 19:28:17'!
+TestCase subclass: #CartTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CartTest methodsFor: 'nil' stamp: 'FK 10/30/2023 19:31:47'!
+test01CreateCartWithValidParameters
+	| cart clientId  password |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cart := Cart forClient: clientId withPassword: password! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:33:24' prior: 50650344!
+test01CreateCartWithValidParameters
+	| cart clientId  password |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cart := Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	self deny: cart hasExpired.! !
+!Cart class methodsFor: 'nil' stamp: 'FK 10/30/2023 19:35:05'!
+forClient: aClientId withPassword: aString
+	^self new initializeWithClientId: aClientId andPassword: aString.! !
+!Cart class methodsFor: 'nil' stamp: 'FK 10/30/2023 19:35:04' prior: 50650363!
+forClient: aClientId withPassword: aString
+	^self new initializeWithClientId: aClientId andPassword: aString.! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:37:51' prior: 50650353!
+test01CreateCartWithValidParameters
+	| cart clientId  password cartId |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cartId := Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	self deny: cart hasExpired.! !
+
+OrderedCollection allInstances!
+
+OrderedCollection allInstances!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:43:31' prior: 50650376!
+test01CreateCartWithValidParameters
+	| clientId  password cartId cart |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cartId := Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	self deny: cart hasExpired.! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:44:15'!
+test01CreateCartWithNonEmptyPasswordAndNonEmptyClientId
+	| clientId  password cartId |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cartId := Cart forClient: clientId withPassword: password.! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:45:47'!
+test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty
+	| cart clientId  password  |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cart :=  Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:45:56' prior: 50650408!
+test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty
+	| cart clientId password |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cart :=  Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	! !
+!Cart methodsFor: 'nil' stamp: 'FK 10/30/2023 19:46:58'!
+initializeWithClientId: aClientId
+	clientId := aClientId.! !
+!Cart class methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:48:58' prior: 50650369!
+forClient: aClientId withPassword: aString
+	^self new initializeWithClientId: aClientId.! !
+
+!testRun: #CartTest #test01CreateCartWithNonEmptyPasswordAndNonEmptyClientId stamp: 'FK 10/30/2023 19:48:59'!
+PASSED!
+
+!testRun: #CartTest #test01CreateCartWithValidParameters stamp: 'FK 10/30/2023 19:48:59'!
+ERROR!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:48:59'!
+ERROR!
+
+!methodRemoval: CartTest #test01CreateCartWithValidParameters stamp: 'FK 10/30/2023 19:49:11'!
+test01CreateCartWithValidParameters
+	| clientId  password cartId cart |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cartId := Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	self deny: cart hasExpired.!
+
+!methodRemoval: CartTest #test01CreateCartWithNonEmptyPasswordAndNonEmptyClientId stamp: 'FK 10/30/2023 19:49:12'!
+test01CreateCartWithNonEmptyPasswordAndNonEmptyClientId
+	| clientId  password cartId |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cartId := Cart forClient: clientId withPassword: password.!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:49:14'!
+ERROR!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:49:14'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:49:39' prior: 50650429!
+initializeWithClientId: aClientId
+	clientId := aClientId.
+	cartElements := OrderedCollection new.! !
+
+Object subclass: #Cart
+	instanceVariableNames: 'clientId cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Cart category: 'TusLibros' stamp: 'FK 10/30/2023 19:49:53'!
+Object subclass: #Cart
+	instanceVariableNames: 'clientId cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cart methodsFor: 'nil' stamp: 'FK 10/30/2023 19:50:09'!
+isEmpty
+	cartElements isEmpty.! !
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:50:11'!
+ERROR!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:50:11'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 19:50:18' prior: 50650496!
+isEmpty
+	^cartElements isEmpty.! !
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:50:21'!
+PASSED!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:52:42'!
+PASSED!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 19:52:42'!
+PASSED!
+
+1 allInstances !
+
+Integer allInstances !
+
+uno := 1.!
+
+Integer allInstances .!
+
+| cart clientId password |!
+
+	cart :=  Cart forClient: clientId withPassword: password.!
+
+Cart allInstances !
+
+Cart allInstances count !
+
+Cart allInstances size  !
+
+Object subclass: #Cart
+	instanceVariableNames: 'clientId cartElements lastId'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Cart category: 'TusLibros' stamp: 'FK 10/30/2023 19:57:01'!
+Object subclass: #Cart
+	instanceVariableNames: 'clientId cartElements lastId'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+Object subclass: #Cart
+	instanceVariableNames: 'clientId cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Cart category: 'TusLibros' stamp: 'FK 10/30/2023 19:57:06'!
+Object subclass: #Cart
+	instanceVariableNames: 'clientId cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+Cart class
+	instanceVariableNames: 'lastId'!
+
+!classDefinition: 'Cart class' category: 'TusLibros' stamp: 'FK 10/30/2023 19:57:12'!
+Cart class
+	instanceVariableNames: 'lastId'!
+
+!classDefinition: 'Cart class' category: 'TusLibros' stamp: 'FK 10/30/2023 20:02:15'!
+Cart class
+	instanceVariableNames: 'lastId carts'!
+!Cart class methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:02:13' prior: 50650434!
+forClient: aClientId withPassword: aString
+	lastId ifNotNil: [ lastId := lastId + 1] ifNil: [ lastId := 0 ] .
+	carts := self new initializeWithClientId: aClientId andCartId: lastId.
+	^lastId.! !
+!Cart class methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:07:35' prior: 50650565!
+forClient: aClientId withPassword: aString
+	| newCart |
+	lastId ifNotNil: [ lastId := lastId + 1] ifNil: [ lastId := 0 ] .
+	newCart := self new initializeWithClientId: aClientId andCartId: lastId.
+	carts ifNotNil: [ carts := carts add: newCart] ifNil: [ carts := OrderedCollection with: newCart ].
+	^lastId.! !
+!Cart class methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:15:00' prior: 50650575!
+forClient: aClientId withPassword: aString
+	^self new initializeWithClientId: aClientId.! !
+
+Object subclass: #Cart
+	instanceVariableNames: 'cartId cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #Cart category: 'TusLibros' stamp: 'FK 10/30/2023 20:15:24'!
+Object subclass: #Cart
+	instanceVariableNames: 'cartId cartElements'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:15:33' prior: 50650479!
+initializeWithClientId: aClientId
+	cartId := aClientId.
+	cartElements := OrderedCollection new.! !
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 20:15:50'!
+PASSED!
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 20:15:50'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:28:13'!
+test02CartWithOneItemWhenIsbnIsKnown
+	| cart clientId password isbn |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn := '026204630X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn quantity: 1.
+	self deny: cart isEmpty.
+	self assert: (cart hasBook: isbn).
+	! !
+
+!testRun: #CartTest #test02CartWithOneItemWhenIsbnIsKnown stamp: 'FK 10/30/2023 20:28:15'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:32:02'!
+addBook: isbn quantity: aNumber
+	aNumber timesRepeat: [cartElements add: isbn].! !
+
+!testRun: #CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 20:32:10'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItemWhenIsbnIsKnown stamp: 'FK 10/30/2023 20:32:10'!
+ERROR!
+
+!testRun: #CartTest #test02CartWithOneItemWhenIsbnIsKnown stamp: 'FK 10/30/2023 20:32:10'!
+ERROR!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:32:34'!
+test02CartWithOneItem
+	| cart clientId password isbn |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn := '026204630X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn quantity: 1.
+	self deny: cart isEmpty.
+	self assert: (cart hasBook: isbn).
+	! !
+
+!methodRemoval: CartTest #test02CartWithOneItemWhenIsbnIsKnown stamp: 'FK 10/30/2023 20:32:34'!
+test02CartWithOneItemWhenIsbnIsKnown
+	| cart clientId password isbn |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn := '026204630X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn quantity: 1.
+	self deny: cart isEmpty.
+	self assert: (cart hasBook: isbn).
+	!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:32:56'!
+test01CreatedCartIsEmpty
+	| cart clientId password |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cart :=  Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	! !
+
+!methodRemoval: CartTest #test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty stamp: 'FK 10/30/2023 20:32:56'!
+test01CreatedCartWithNonEmptyPasswordAndNonEmptyClientIdIsEmpty
+	| cart clientId password |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	cart :=  Cart forClient: clientId withPassword: password.
+	self assert: cart isEmpty.
+	!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:33:18'!
+hasBook: isbn
+	^cartElements includes: isbn.! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:33:21'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:33:21'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:34:46'!
+test03CartWithOneItemManyTimes
+	| cart clientId password isbn |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn := '026204630X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn quantity: 3.
+	self assert: (cart hasBook: isbn times: 3).
+	! !
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:34:53'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:35:31'!
+hasBook: isbn times: aNumber
+	^aNumber = (cartElements count: isbn).! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:35:35'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:35:35'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:35:35'!
+ERROR!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:35:35'!
+ERROR!
+
+#(1 2 3 2 1 3 2) count: 2!
+
+#(1 2 3 2 1 3 2) count: [2]!
+
+#(1 2 3 2 1 3 2) count: [ :a | a = 2]!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:37:19' prior: 50650718!
+hasBook: isbn times: aNumber
+	^aNumber = (cartElements count: [ :aBook | aBook = isbn]).! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:37:22'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:37:22'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:37:22'!
+PASSED!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:39:26' prior: 50650738!
+hasBook: isbn times: aNumber
+	^aNumber = (cartElements occurrencesOf: isbn).! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:39:29'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:39:29'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:39:29'!
+PASSED!
+
+!methodRemoval: Cart #hasBook: stamp: 'FK 10/30/2023 20:39:46'!
+hasBook: isbn
+	^cartElements includes: isbn.!
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:39:49'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:39:49'!
+ERROR!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:39:50'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:39:50'!
+ERROR!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:40:03' prior: 50650650!
+test02CartWithOneItem
+	| cart clientId password isbn |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn := '026204630X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn quantity: 1.
+	self deny: cart isEmpty.
+	self assert: (cart hasBook: isbn times: 1).
+	! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:40:07'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:40:07'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:40:07'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:45:56'!
+test04CartCantAddBookIfAmountIsBelowOne
+	| cart clientId password isbn |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn := '026204630X'.
+	cart := Cart forClient: clientId withPassword: password.
+	self should: [cart addBook: isbn quantity: -1]
+		raise: Error
+		withMessageText: 'Book quantity must be 1 or more.'.
+	! !
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/30/2023 20:46:00'!
+FAILURE!
+
+-1 timesRepeat: [^'hola'].!
+!Cart class methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:48:29'!
+bookToAddHasQuantityBelowOneErrorDescription
+	^'Book quantity must be 1 or more'.! !
+!Cart class methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:48:50' prior: 50650818!
+bookToAddHasQuantityBelowOneErrorDescription
+	^'Book quantity must be 1 or more.'.! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/30/2023 20:51:32' prior: 50650634!
+addBook: isbn quantity: aNumber
+	(aNumber < 1) ifTrue: [^self error: self class bookToAddHasQuantityBelowOneErrorDescription ].
+	aNumber timesRepeat: [cartElements add: isbn].! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/30/2023 20:51:36'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/30/2023 20:51:36'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/30/2023 20:51:36'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/30/2023 20:51:36'!
+PASSED!
+
+----SNAPSHOT----(31 October 2023 10:17:08) CuisUniversity-5981.image priorSource: 10197292!
+
+----STARTUP---- (31 October 2023 21:25:41) as /Users/fran/Downloads/macos64/CuisUniversity-5981.image!
+
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 21:43:05'!
+PASSED!
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 21:43:08'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 21:43:08'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 21:43:08'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 21:43:08'!
+PASSED!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:52:24'!
+test05CartListing
+	| cart clientId password isbn1 isbn2 expectedText |
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn1 := '026204630X'.
+	isbn2 := '026204631X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn1 quantity: 1.
+	cart addBook: isbn2 quantity: 2.
+	expectedText := isbn1, '1', Character newLineCharacter asString,
+				   isbn2, '2', Character newLineCharacter asString.
+	self assert: cart listCart = expectedText.
+	! !
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:52:30'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:55:24'!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | cartList, cartBook ].! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:56:31' prior: 50650891!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | cartList, cartBook, cartBook quantity ].! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:57:07' prior: 50650897!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | cartList, cartBook, cartElements quantity: cartBook ].! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:58:04'!
+quantity: anIsbn
+	^cartElements count: [ :cartBook | cartBook = anIsbn ].! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 21:58:09'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 21:58:09'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 21:58:09'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 21:58:09'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:58:09'!
+ERROR!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:58:09'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:58:40' prior: 50650904!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | cartList, cartBook, (cartElements quantity: cartBook) asString].! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 21:58:43'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 21:58:43'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 21:58:44'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 21:58:44'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:58:44'!
+ERROR!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:58:44'!
+ERROR!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:59:00' prior: 50650933!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | cartList, cartBook, (self quantity: cartBook) asString].! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:59:03' prior: 50650957!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | cartList, cartBook, (self quantity: cartBook) asString ].! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 21:59:09'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 21:59:09'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 21:59:09'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 21:59:09'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:59:09'!
+FAILURE!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 21:59:09'!
+FAILURE!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 21:59:48' prior: 50650964!
+listCart
+	^cartElements inject: '' into: [ :cartList :cartBook | 
+		cartList, cartBook, (self quantity: cartBook) asString, Character newLineCharacter asString ].! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 22:00:10'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 22:00:10'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 22:00:10'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 22:00:10'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:00:10'!
+FAILURE!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:00:10'!
+FAILURE!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:01:53' prior: 50650871!
+test05CartListing
+	| cart clientId password isbn1 isbn2 expectedText actualText|
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn1 := '026204630X'.
+	isbn2 := '026204631X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn1 quantity: 1.
+	cart addBook: isbn2 quantity: 2.
+	expectedText := isbn1, '1', Character newLineCharacter asString,
+				   isbn2, '2', Character newLineCharacter asString.
+	actualText := cart listCart.
+	self assert: actualText = expectedText.
+	! !
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:01:54'!
+FAILURE!
+
+----End fileIn of /Users/fran/Downloads/macos64/Packages/TerseGuide.pck.st----!
+
+| dic |!
+
+dic := Dictionary new.!
+
+dic := Dictionary new.!
+
+dic add: '1234'->2!
+
+dic add: '1234'->2.!
+
+dic add: '2345'->1.!
+
+dic add: '2345'->1.!
+
+dic size.!
+
+dic at: '1234'.!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:08:36' prior: 50650605!
+initializeWithClientId: aClientId
+	cartId := aClientId.
+	cartElements := Dictionary new.! !
+
+dic isEmpty.!
+
+dic keys.!
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:09:47' prior: 50650830!
+addBook: isbn quantity: aNumber
+	(aNumber < 1) ifTrue: [^self error: self class bookToAddHasQuantityBelowOneErrorDescription ].
+	cartElements add: isbn->aNumber.! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:10:04' prior: 50650752!
+hasBook: isbn times: aNumber
+	^aNumber = (cartElements at: isbn).! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:12:35' prior: 50650988!
+listCart
+	| cartBooks |
+	cartBooks := cartElements keys.
+	^cartBooks inject: '' into: [ :cartList :cartBook | 
+		cartList, cartBook, (cartElements at: cartBook) asString, Character newLineCharacter asString ].! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 22:12:39'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 22:12:39'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 22:12:39'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 22:12:39'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:12:39'!
+FAILURE!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:12:39'!
+FAILURE!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:13:32' prior: 50651013!
+test05CartListing
+	| cart clientId password isbn1 isbn2 expectedText actualText|
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn1 := '026204630X'.
+	isbn2 := '026204631X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn1 quantity: 1.
+	cart addBook: isbn2 quantity: 2.
+	expectedText := isbn2, '2', Character newLineCharacter asString,
+				   isbn1, '1', Character newLineCharacter asString.
+	actualText := cart listCart.
+	self assert: actualText = expectedText.
+	! !
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 22:13:36'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 22:13:36'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 22:13:36'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 22:13:36'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:13:36'!
+PASSED!
+
+!methodRemoval: Cart #quantity: stamp: 'FK 10/31/2023 22:13:47'!
+quantity: anIsbn
+	^cartElements count: [ :cartBook | cartBook = anIsbn ].!
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:15:33' prior: 50654006!
+test05CartListing
+	| cart clientId password isbn1 isbn2 expectedText actualText|
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn1 := '026204630X'.
+	isbn2 := '026204631X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn1 quantity: 1.
+	cart addBook: isbn2 quantity: 2.
+	expectedText := isbn2, '2', ' | ',
+				   isbn1, '1', ' | '.
+	actualText := cart listCart.
+	self assert: actualText = expectedText.
+	! !
+!Cart methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:16:05' prior: 50653979!
+listCart
+	| cartBooks |
+	cartBooks := cartElements keys.
+	^cartBooks inject: '' into: [ :cartList :cartBook | 
+		cartList, cartBook, ' | ', (cartElements at: cartBook) asString, ' | ' ].! !
+!CartTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 22:16:37' prior: 50654044!
+test05CartListing
+	| cart clientId password isbn1 isbn2 expectedText actualText|
+	password := 'contrasenia'.
+	clientId := 1234567.
+	isbn1 := '026204630X'.
+	isbn2 := '026204631X'.
+	cart := Cart forClient: clientId withPassword: password.
+	cart addBook: isbn1 quantity: 1.
+	cart addBook: isbn2 quantity: 2.
+	expectedText := isbn2, ' | ', '2', ' | ',
+				   isbn1, ' | ', '1', ' | '.
+	actualText := cart listCart.
+	self assert: actualText = expectedText.
+	! !
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:16:40'!
+PASSED!
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 22:16:40'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 22:16:40'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 22:16:40'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 22:16:40'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:16:40'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:16:51'!
+PASSED!
+
+!testRun: #CartTest #test01CreatedCartIsEmpty stamp: 'FK 10/31/2023 22:16:51'!
+PASSED!
+
+!testRun: #CartTest #test02CartWithOneItem stamp: 'FK 10/31/2023 22:16:51'!
+PASSED!
+
+!testRun: #CartTest #test03CartWithOneItemManyTimes stamp: 'FK 10/31/2023 22:16:51'!
+PASSED!
+
+!testRun: #CartTest #test04CartCantAddBookIfAmountIsBelowOne stamp: 'FK 10/31/2023 22:16:51'!
+PASSED!
+
+!testRun: #CartTest #test05CartListing stamp: 'FK 10/31/2023 22:16:51'!
+PASSED!
+
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardTest category: 'TusLibros' stamp: 'FK 10/31/2023 22:30:03'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+Date year: 2023 month: 31!
+
+Date year: 2023 month: 12!
+
+Date year: 2023 month: 11!
+
+1 // 2023!
+
+Date today!
+
+Date newDay: 12 month: #July year: 1999!
+
+12 july !
+
+Date today!
+
+Date today!
+
+Date month: 12 year: 1998!
+
+Date month: 11 year: 1998!
+
+Date month:  October year: 2023 !
+
+October / 2023!
+
+October / 12 / 2023!
+
+(October / 12 / 2023) class!
+
+(October / 31 / 2023) !
+
+(October / 30 / 2023) monthOfYear !
+
+August class!
+
+August class!
+
+October isObject !
+
+October // 2023!
+
+October ofYear: 2023!
+
+October ofYear: 2023 !
+
+October ofYear: 2023 !
+
+(December ofYear: 2022) < (October ofYear: 2023)!
+
+(December ofYear: 2022) > (October ofYear: 2023)!
+
+!classDefinition: #CreditCardChecker category: 'TusLibros' stamp: 'FK 10/31/2023 22:53:42'!
+Object subclass: #CreditCardChecker
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCardTest methodsFor: 'nil' stamp: 'FK 10/31/2023 22:53:32'!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	 CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount! !
+!CreditCardTest class methodsFor: 'nil' stamp: 'FK 10/31/2023 22:55:19'!
+withCCNumber: aCreditCardNumber expirationDate: expiration owner: anOwner andAmount: anAmount
+	self new 
+		initializeWithCCNumber: aCreditCardNumber
+		expiration: expiration
+		owner: anOwner 
+		amount: anAmount.! !
+!CreditCardTest class methodsFor: 'nil' stamp: 'FK 10/31/2023 22:55:19' prior: 50654172!
+withCCNumber: aCreditCardNumber expirationDate: expiration owner: anOwner andAmount: anAmount
+	self new 
+		initializeWithCCNumber: aCreditCardNumber
+		expiration: expiration
+		owner: anOwner 
+		amount: anAmount.! !
+
+!classDefinition: #CreditCardTest category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:13'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: 'creditCardNumber'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardTest category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:15'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: 'creditCardNumber expirationDate'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardTest category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:16'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: 'creditCardNumber expirationDate owner'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardTest category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:17'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: 'creditCardNumber expirationDate owner amount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCardTest methodsFor: 'nil' stamp: 'FK 10/31/2023 22:57:11'!
+initializeWithCCNumber: aCreditCardNumber expiration: expiration owner: anOwner amount: anAmount.
+	creditCardNumber := aCreditCardNumber.
+	expirationDate  := expiration.
+	owner := anOwner. 
+	amount := anAmount.! !
+
+!classDefinition: #CreditCardChecker category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:32'!
+Object subclass: #CreditCardChecker
+	instanceVariableNames: 'creditCardNumber'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardChecker category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:33'!
+Object subclass: #CreditCardChecker
+	instanceVariableNames: 'creditCardNumber expirationDate'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardChecker category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:34'!
+Object subclass: #CreditCardChecker
+	instanceVariableNames: 'creditCardNumber expirationDate owner'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+
+!classDefinition: #CreditCardChecker category: 'TusLibros' stamp: 'FK 10/31/2023 22:57:35'!
+Object subclass: #CreditCardChecker
+	instanceVariableNames: 'creditCardNumber expirationDate owner amount'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCardChecker methodsFor: 'nil' stamp: 'FK 10/31/2023 22:57:30'!
+initializeWithCCNumber: aCreditCardNumber expiration: expiration owner: anOwner amount: anAmount.
+	creditCardNumber := aCreditCardNumber.
+	expirationDate  := expiration.
+	owner := anOwner. 
+	amount := anAmount.! !
+
+!methodRemoval: CreditCardTest #initializeWithCCNumber:expiration:owner:amount: stamp: 'FK 10/31/2023 22:57:46'!
+initializeWithCCNumber: aCreditCardNumber expiration: expiration owner: anOwner amount: anAmount.
+	creditCardNumber := aCreditCardNumber.
+	expirationDate  := expiration.
+	owner := anOwner. 
+	amount := anAmount.!
+
+!methodRemoval: CreditCardTest class #withCCNumber:expirationDate:owner:andAmount: stamp: 'FK 10/31/2023 22:57:53'!
+withCCNumber: aCreditCardNumber expirationDate: expiration owner: anOwner andAmount: anAmount
+	self new 
+		initializeWithCCNumber: aCreditCardNumber
+		expiration: expiration
+		owner: anOwner 
+		amount: anAmount.!
+!CreditCardChecker class methodsFor: 'nil' stamp: 'FK 10/31/2023 22:58:02'!
+withCCNumber: aCreditCardNumber expirationDate: expiration owner: anOwner andAmount: anAmount
+	self new 
+		initializeWithCCNumber: aCreditCardNumber
+		expiration: expiration
+		owner: anOwner 
+		amount: anAmount.! !
+
+!classDefinition: #CreditCardTest category: 'TusLibros' stamp: 'FK 10/31/2023 23:01:13'!
+TestCase subclass: #CreditCardTest
+	instanceVariableNames: 'creditCardNumber expirationDate owner amount creditCardChecker'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibros'!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:01:16' prior: 50654159!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker :=  CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:01:24'!
+FAILURE!
+!CreditCardChecker methodsFor: 'nil' stamp: 'FK 10/31/2023 23:03:06'!
+check
+	self error: 'Credit card number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:03:11'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:03:11'!
+FAILURE!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:03:27' prior: 50654314!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker :=  CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:03:29'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:04:37'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:04:47' prior: 50654335!
+check
+	^self error: 'Credit card number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:04:48'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:04:48'!
+FAILURE!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:05:03' prior: 50654347!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker :=  CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount.
+	self 
+		should: creditCardChecker check
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:05:04'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:05:28'!
+ERROR!
+!CreditCardChecker class methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:05:51' prior: 50654295!
+withCCNumber: aCreditCardNumber expirationDate: expiration owner: anOwner andAmount: anAmount
+	^self new 
+		initializeWithCCNumber: aCreditCardNumber
+		expiration: expiration
+		owner: anOwner 
+		amount: anAmount.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:05:53'!
+ERROR!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:05:53'!
+ERROR!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:06:06' prior: 50654384!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker :=  CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:06:10'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:06:30' prior: 50654372!
+check
+	^self error: 'Credit Card number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:06:31'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:06:31'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:06:59' prior: 50654448!
+check
+	^self error: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:07:01'!
+PASSED!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:07:27' prior: 50654460!
+check
+	^self error: (self class errorMessageCreditCardNumberIsEmpty).! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:07:46'!
+FAILURE!
+!CreditCardChecker class methodsFor: 'nil' stamp: 'FK 10/31/2023 23:09:02'!
+errorMessageCreditCardNumberIsEmpty
+	^'Credit Card Number is not valid'! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:09:04'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:09:32' prior: 50654426!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := ''.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker :=  CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:09:33'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:09:33'!
+PASSED!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:10:27' prior: 50654469!
+check
+	^(creditCardNumber isEmpty) ifTrue: [ self error: (self class errorMessageCreditCardNumberIsEmpty). ]! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:10:28'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:12:54' prior: 50654486!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := ''.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 CreditCardChecker 
+		withCCNumber: aCreditCardNumber 
+		expirationDate: expiration
+		owner: anOwner
+		andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:12:55'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:12:55'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:13:13' prior: 50654521!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := ''.
+	expiration := December ofYear: 2044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:13:14'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 10/31/2023 23:13:14'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:16:06'!
+test02ExpiredCreditCardDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := ''.
+	expiration := December ofYear: 1998.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is expired'.! !
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 10/31/2023 23:16:07'!
+FAILURE!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 10/31/2023 23:16:38' prior: 50654570!
+test02ExpiredCreditCardDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 1998.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is expired'.! !
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 10/31/2023 23:16:38'!
+FAILURE!
+
+Date today > (October of: 2023)!
+
+FixedGregorianDate today!
+
+FixedGregorianDate today > October ofYear: 2024!
+
+(FixedGregorianDate today) > October ofYear: 2024!
+
+(FixedGregorianDate today) > (October ofYear: 2024)!
+
+(FixedGregorianDate today) !
+
+(FixedGregorianDate today) > (FixedGregorianDate today)!
+
+(FixedGregorianDate today) > (FixedGregorianDate yesterday)!
+
+(FixedGregorianDate today) > (October)!
+
+(FixedGregorianDate year) > (October)!
+
+(FixedGregorianDate today month) > (October)!
+
+(FixedGregorianDate today ) < (October)!
+
+(FixedGregorianDate today ) < (October ofYear: 2023)!
+
+(FixedGregorianDate today ) < (October ofYear: 2023)!
+
+(FixedGregorianDate today ) < (October ofYear: 2023)!
+
+Date today!
+
+(Date today) month !
+
+(Date today) monthOfYear !
+
+(Date today) month!
+
+(Date today) month!
+
+(Date today) month == (October ofYear: 2023)!
+
+((Date today) month) == (October ofYear: 2023)!
+
+((Date today) month) == (October ofYear: 2023)!
+
+((Date today) month) == (October ofYear: 2023)!
+
+((Date today) month) > (October ofYear: 2023)!
+
+((Date today) month) = (October ofYear: 2023)!
+
+((Date today) month) < (September ofYear: 2023)!
+
+(October ofYear: 2023)!
+
+(October ofYear: 2023) class!
+
+GregorianDate today!
+
+(October ofYear: 2023)!
+
+(October ofYear: 2023) class!
+
+GregorianMonth current!
+
+(Date today) month!
+
+(October ofYear: 2023)!
+
+((October ofYear: 2023) asSmalltalkDate ) > (Date today)!
+
+((October ofYear: 2023) asSmalltalkDate ) > (Date today)!
+
+((October ofYear: 2023) class)!
+
+(Date today) month!
+
+((Date today) month) class!
+
+Date month: October year: 2023!
+
+(Date month: October year: 2023)!
+
+(Date month: October year: 2023) class!
+
+GregorianMonthOfYear month: August year: 2023!
+
+August ofYear: 2023!
+
+(August ofYear: 2023) class!
+
+(August ofYear: 2023) < (GregorianMonthOfYear current)!
+
+(August ofYear: 2023) < (GregorianMonthOfYear current)!
+
+(August ofYear: 2023) < (GregorianMonthOfYear current)!
+
+FixedGregorianDate current!
+
+FixedGregorianDate today !
+
+(FixedGregorianDate today) > (October ofYear: 2023)!
+
+(FixedGregorianDate today) between: (October ofYear: 2023)  and: (November ofYear: 2023)!
+
+(FixedGregorianDate today) between: (October)  and: (November ofYear: 2023)!
+
+(FixedGregorianDate today) class!
+
+(FixedGregorianDate today) month!
+
+(FixedGregorianDate today) year!
+
+((FixedGregorianDate today) month) > (October)!
+
+((FixedGregorianDate today) month) between: December and: December!
+
+((FixedGregorianDate today) month) > October!
+
+((FixedGregorianDate today) month) < October!
+
+((FixedGregorianDate today) month) < October!
+
+((FixedGregorianDate today) month) < October!
+
+((FixedGregorianDate today) month) < (October ofYear: 2023)!
+
+((FixedGregorianDate today) month) < ((October ofYear: 2023) month)!
+
+((FixedGregorianDate today) month) < ((October ofYear: 2023) month)!
+
+((FixedGregorianDate today) month) < ((November ofYear: 2023) month) false .!
+
+((FixedGregorianDate today) month) < ((November ofYear: 2023) month)!
+
+October / 5 / 2023 !
+
+(October / 5 / 2023) class!
+TerseGuideHelp is adapted from the Squeak terse guide by Chris Rathman (http://www.angelfire.com/tx4/cus/notes/smalltalk.html), maintained on the swiki at http://wiki.squeak.org/squeak/5699. Copyrights and credit for the original document belong to Chris Rathman.
+
+Examples of use include:
+
+TerseGuideHelp display: #arithmetic
+TerseGuideHelp display: #array
+TerseGuideHelp display: #transcript
+
+TerseGuideHelp also serves as the model for TerseGuideWindow, which can be opened by:
+
+TerseGuideWindow openTerseGuide
+!
+Show a terse guide to Cuis in a system window. The window has a text pane with a list pane beside it. The text pane is a kind of Workspace which has the behavior that statements in it can be Done (Cmd-d) or Printed (Cmd-p) in order to observe their effect.
+
+TerseGuideWindow openTerseGuide
+!
+I represent a topic that can be added to the TerseGuide. Subclasses of me should implement #title and #examples. For instance:
+
+>>title
+    ^ 'Numbers'
+
+>> examples
+     ^ {
+            { #code -> '4 factorial' . #category -> 'Common functions' . #description -> 'factorial' } as: Dictionary.
+            { #code -> '2 even' . #category -> 'Common functions' . #description -> 'check if a number is even' } as: Dictionary.
+        }!
+
+----SNAPSHOT----(1 November 2023 00:54:57) CuisUniversity-5981.image priorSource: 10214372!
+
+----QUIT----(1 November 2023 00:55:00) CuisUniversity-5981.image priorSource: 10337829!
