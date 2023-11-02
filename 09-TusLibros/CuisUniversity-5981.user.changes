@@ -1518,3 +1518,757 @@ I represent a topic that can be added to the TerseGuide. Subclasses of me should
 ----SNAPSHOT----(1 November 2023 00:54:57) CuisUniversity-5981.image priorSource: 10214372!
 
 ----QUIT----(1 November 2023 00:55:00) CuisUniversity-5981.image priorSource: 10337829!
+
+----STARTUP---- (1 November 2023 21:41:06) as /Users/fran/Downloads/macos64/CuisUniversity-5981.image!
+
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 21:46:08'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 21:46:08'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 21:48:59' prior: 50654511!
+check
+	(creditCardNumber isEmpty) ifTrue: [ ^self error: (self class errorMessageCreditCardNumberIsEmpty). ].
+	(expirationDate isExpired) ifTrue: [^self error: self class errorMessageCreditCardIsExpired].! !
+!CreditCardChecker class methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 21:49:19'!
+errorMessageCreditCardIsExpired
+	^'Credit Card is expired'! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 21:49:39' prior: 50654592!
+test02ExpiredCreditCardDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := December ofYear: 1998.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card is expired'.! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 21:50:28' prior: 50654725!
+check
+	(creditCardNumber isEmpty) ifTrue: [ ^self error: (self class errorMessageCreditCardNumberIsEmpty). ].
+	(self isExpired) ifTrue: [^self error: self class errorMessageCreditCardIsExpired].! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 21:51:18'!
+isExpired
+	^expirationDate.
+	! !
+
+(December ofYear: 2020) class!
+
+(December ofYear: 2020) month!
+
+(December ofYear: 2020) year!
+
+(December ofYear: 2020) month class!
+
+(December ofYear: 2020) month.!
+
+Date today!
+
+Date today month!
+
+Date today year!
+
+Date today month class!
+
+Date today month!
+
+(December ofYear: 2020).!
+
+Date today month.!
+
+Date today monthName!
+
+FixedGregorianDate today month!
+
+(FixedGregorianDate today month) ofYear: (FixedGregorianDate today year).!
+
+(December ofYear: 2020).!
+
+| aD bD |!
+
+aD := (December ofYear: 2020).!
+
+bD := (FixedGregorianDate today month) ofYear: (FixedGregorianDate today year).!
+
+aD < bD.!
+
+aD := (December ofYear: 2020).!
+
+Date today year!
+
+aD < bD.!
+
+aD class < bD.!
+
+aD := (December ofYear: 2020) class!
+
+aD := (December ofYear: 2020).!
+
+bD := (FixedGregorianDate today month) ofYear: (FixedGregorianDate today year).!
+
+bD class.!
+
+aD class.!
+
+aD class.!
+
+aD class.!
+
+bD class.!
+
+aD < bD.!
+
+aD year!
+
+bD year!
+
+bD year!
+
+aD := (December ofYear: 2020) month.!
+
+bD := (FixedGregorianDate today) month!
+
+bD := (FixedGregorianDate today) year.!
+
+aD := (December ofYear: 2020) year.!
+
+bD := (Date today) year.!
+
+bD := (GregorianDate today) year.!
+
+bD := (Date today) year.!
+
+bD := (DateAndTime today) year.!
+
+bD := (FixedGregorianDate today) year.!
+
+bD := (GregorianDate today) year.!
+
+bD := (GregorianDay today) year.!
+
+bD := (GregorianDayOfMonth today) year.!
+
+bD := (GregorianDay today) year.!
+
+bD := (GregorianDay today).!
+
+bD := (GregorianDayOfMonth today).!
+
+bD := (GregorianDayOfMonth today) month.!
+
+aD := (December ofYear: 2020) class.!
+
+bD monthOfYear !
+
+bD := (FixedGregorianDate today).!
+
+aD := (December ofYear: 2020).!
+
+bD > aD!
+
+bD distanceFrom: aD.!
+
+aD := (FixedGregorianDate yearNumber: 2023 monthNumber: 1 dayNumber: 1).!
+
+bD distanceFrom: aD.!
+
+October / 8 / 2023 class!
+
+(October / 8 / 2023) class!
+
+bD includes: aD.!
+
+bD < aD.!
+
+bD > aD.!
+
+| aD bD digits |!
+
+digits := 052023.!
+
+digits / 10000.!
+
+digits // 10000.!
+
+digits % 10000.!
+
+digits mod: 10000.!
+
+digits := 052023.!
+
+aD := (FixedGregorianDate yearNumber: (digits mod: 10000) monthNumber: (digits / 10000) dayNumber: 1).!
+
+bD := (FixedGregorianDate today).!
+
+bD > aD.!
+
+bD < aD.!
+
+						(FixedGregorianDate yearNumber: 2004 monthNumber: 1 dayNumber: 1)!
+
+((FixedGregorianDate yearNumber: 2004 monthNumber: 1 dayNumber: 1) distanceTo: (FixedGregorianDate yearNumber: 2004 monthNumber: 1 dayNumber: 1))!
+
+((FixedGregorianDate today) distanceTo: (FixedGregorianDate yearNumber: 2004 monthNumber: 1 dayNumber: 1)).!
+
+cD := October / 2023!
+
+cD := October / 2023.!
+
+cD monthNumber !
+
+(FixedGregorianDate today)!
+
+(FixedGregorianDate today) month!
+
+(FixedGregorianDate today) year!
+
+(FixedGregorianDate today) = (cD year)!
+
+cD := October ofYear: 2023.!
+
+(FixedGregorianDate today year) = (cD year)!
+
+October / 7 / 2023.!
+
+October / 7 / 2023 class!
+
+(October / 7 / 2023) class!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:42:09' prior: 50654546!
+test01CreditCardNumberCannotBeEmpty
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := ''.
+	expiration := 122044.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card Number is not valid'.! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:42:17' prior: 50654740!
+test02ExpiredCreditCardDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 121998.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Credit Card is expired'.! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:45:34' prior: 50654768!
+isExpired
+	| expirationDateAsFGD todayDate |
+
+	expirationDateAsFGD := FixedGregorianDate yearNumber: (expirationDate mod: 10000) 
+										    monthNumber: (expirationDate / 10000) 
+										    dayNumber: 1.
+	todayDate := (FixedGregorianDate today).
+	^expirationDateAsFGD < todayDate.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 22:45:38'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:45:38'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:45:38'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:47:04'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:47:37' prior: 50654898!
+isExpired
+	| expirationDateAsFGD todayDate |
+
+	expirationDateAsFGD := (FixedGregorianDate yearNumber: (expirationDate mod: 10000) 
+										    monthNumber: (expirationDate / 10000) 
+										    dayNumber: 1).
+	todayDate := (FixedGregorianDate today).
+	^expirationDateAsFGD < todayDate.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 22:47:40'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:47:40'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:47:40'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:48:23'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:49:01'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:50:04'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:51:30' prior: 50654924!
+isExpired
+	| expDate todayDate |
+
+	expDate := (FixedGregorianDate yearNumber: (expirationDate mod: 10000) monthNumber: (expirationDate / 10000) dayNumber: 1).
+	todayDate := (FixedGregorianDate today).
+	^expDate < todayDate.! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:51:49' prior: 50654957!
+isExpired
+	| expDate todayDate |
+
+	expDate := (FixedGregorianDate yearNumber: (expirationDate mod: 10000) monthNumber: (expirationDate / 10000) dayNumber: 1).
+	todayDate := (FixedGregorianDate today).
+	^(expDate < todayDate).! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 22:51:52'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:51:52'!
+FAILURE!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:51:52'!
+FAILURE!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 22:52:09'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:53:01'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:54:29' prior: 50654968!
+isExpired
+	| expDate todayDate exp1 exp2 exp3 |
+
+	exp1 := (expirationDate mod: 10000).
+	exp2 := (expirationDate / 10000).
+	exp3 := 1.
+	expDate := (FixedGregorianDate yearNumber: exp1 monthNumber: exp2 dayNumber: exp3).
+	todayDate := (FixedGregorianDate today).
+	^(expDate < todayDate).! !
+
+digits / 10000.!
+
+digits // 10000.!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:47:37' prior: 50654996!
+isExpired
+	| expirationDateAsFGD todayDate |
+
+	expirationDateAsFGD := (FixedGregorianDate yearNumber: (expirationDate mod: 10000) 
+										    monthNumber: (expirationDate / 10000) 
+										    dayNumber: 1).
+	todayDate := (FixedGregorianDate today).
+	^expirationDateAsFGD < todayDate.! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 22:56:12' prior: 50655010!
+isExpired
+	| expirationDateAsFGD todayDate |
+
+	expirationDateAsFGD := (FixedGregorianDate yearNumber: (expirationDate mod: 10000) 
+										    monthNumber: (expirationDate // 10000) 
+										    dayNumber: 1).
+	todayDate := (FixedGregorianDate today).
+	^expirationDateAsFGD < todayDate.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 22:56:15'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 22:56:15'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:02:28'!
+test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Adolph Blaine Charles David Earl Frederick Gerald Hubert Irvin John Kenneth Lloyd Martin Nero Oliver Paul Quincy 
+				Randolph Sherman Thomas Uncas Victor William Xerxes Yancy Zeus Apollo 
+				Wolfe­schlegelstein­hausenberger­dorffvoraltern­waren­gewissenhaft­schaferswessen­schafewaren­wohlgepflege­und­sorgfaltigkeit­beschutzen­von­angreifen­durch­ihrraubgierigfeinde­welche­voraltern­zwolftausend­jahres­vorandieerscheinen­wander­ersteer­dem­enschderraumschiff­gebrauchlicht­als­sein­ursprung­von­kraftgestart­sein­lange­fahrt­hinzwischen­sternartigraum­auf­der­suchenach­diestern­welche­gehabt­bewohnbar­planeten­kreise­drehen­sich­und­wohin­der­neurasse­von­verstandigmen­schlichkeit­konnte­fortplanzen­und­sicher­freuen­anlebens­langlich­freude­und­ruhe­mit­nicht­ein­furcht­vor­angreifen­von­anderer­intelligent­geschopfs­von­hinzwischen­sternartigraum'.
+	anAmount := '12.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Owner name is longer than 30 characters'.! !
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:02:30'!
+FAILURE!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:03:53' prior: 50654759!
+check
+	(creditCardNumber isEmpty) ifTrue: [ ^self error: (self class errorMessageCreditCardNumberIsEmpty). ].
+	(self isExpired) ifTrue: [^self error: self class errorMessageCreditCardIsExpired].
+	(owner size > 30) ifTrue: [^self error: self class errorMessageOwnerNameIsTooLong ].! !
+!CreditCardChecker class methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:04:22'!
+errorMessageOwnerNameIsTooLong
+	^'Owner name is longer than 30 characters'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:05:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:05:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:05:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:05:11'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:05:11'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:05:11'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:12:25'!
+test04TransactionAmountLargerThan18CharacterDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 121998.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '123456789123456789.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'.! !
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:12:27'!
+FAILURE!
+!CreditCardChecker class methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:13:22'!
+errorMessageTransactionAmountWrongFormat
+	^'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:15:11' prior: 50655094!
+check
+	(creditCardNumber isEmpty) ifTrue: [^self error: (self class errorMessageCreditCardNumberIsEmpty)].
+	(self isExpired) ifTrue: [^self error: self class errorMessageCreditCardIsExpired].
+	(owner size > 30) ifTrue: [^self error: self class errorMessageOwnerNameIsTooLong].
+	(self amountHasWrongFormat) ifTrue: [^self error: self class errorMessageTransactionAmountWrongFormat].! !
+
+a := '123456789123456789.1314'.!
+
+a indexOf: '.' startingAt: 1 ifAbsent: [^'no hay punto'].!
+
+a indexOf: $. startingAt: 1 ifAbsent: [^'no hay punto'].!
+
+a copyFrom: 1 to: 19.!
+
+a copyFrom: 1 to: 18.!
+
+a copyFrom: 20 to: (a size).!
+
+a copyFrom: 20 to: (a size -1).!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:28:34'!
+amountHasWrongFormat
+	| dotIx integerPart decimalPart |
+	dotIx := amount indexOf: $. startingAt: 1 ifAbsent: [^true].
+	integerPart := amount copyFrom: 1 to: (dotIx-1).
+	decimalPart := amount copyFrom: (dotIx+1) to: (amount size).
+	! !
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:29:29' prior: 50655189!
+amountHasWrongFormat
+	| dotIx integerPart decimalPart |
+	dotIx := amount indexOf: $. startingAt: 1 ifAbsent: [^true].
+	integerPart := amount copyFrom: 1 to: (dotIx-1).
+	decimalPart := amount copyFrom: (dotIx+1) to: (amount size).
+	^(integerPart size > 15) or: (decimalPart size > 2).
+	! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:29:34'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:35'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:35'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:35'!
+FAILURE!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:35'!
+FAILURE!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:29:54' prior: 50655133!
+test04TransactionAmountLargerThan18CharacterDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '123456789123456789.13'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'.! !
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:58'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:29:58'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:58'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:58'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:29:58'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:31:09'!
+test04TransactionAmountWithCharactersDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '1234567891c3456789.1d'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'.! !
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:31:29'!
+test05TransactionAmountWithCharactersDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '1234567891c3456789.1d'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'.! !
+
+!methodRemoval: CreditCardTest #test04TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:31:29'!
+test04TransactionAmountWithCharactersDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '1234567891c3456789.1d'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'.!
+
+a copyFrom: 1 to: 18.!
+
+a := '12345678912c3456789.1314'.!
+
+a copyFrom: 1 to: 18. !
+
+(a copyFrom: 1 to: 18) allSatisfy: [ :i | i isDigit ].!
+
+a := '123456789123456789.1314'.!
+
+(a copyFrom: 1 to: 18) allSatisfy: [ :i | i isDigit ].!
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:35:04'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:04'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:04'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:04'!
+PASSED!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:04'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:35:27' prior: 50655290!
+test05TransactionAmountWithCharactersDoesNotPassCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '123c123.1d'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self 
+		should: [creditCardChecker check]
+		raise: Error
+		withMessageText: 'Transaction Amount must be at most 15 digits followed by a dot and 2 digits'.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:35:30'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:31'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:31'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:31'!
+PASSED!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:31'!
+FAILURE!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:35:31'!
+FAILURE!
+
+(a copyFrom: 1 to: 18) anySatisfy: [ :i | i isDigit not ].!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:37:45' prior: 50655200!
+amountHasWrongFormat
+	| dotIx integerPart decimalPart |
+	dotIx := amount indexOf: $. startingAt: 1 ifAbsent: [^true].
+	integerPart := amount copyFrom: 1 to: (dotIx-1).
+	decimalPart := amount copyFrom: (dotIx+1) to: (amount size).
+	^(integerPart size > 15) or: (decimalPart size > 2) 
+	or: (integerPart anySatisfy: [ :i | i isDigit not ]) or: (decimalPart anySatisfy: [ :i | i isDigit not ]).
+	! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:37:49'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:37:49'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:37:49'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:37:49'!
+PASSED!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:37:49'!
+PASSED!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:45:20' prior: 50655402!
+amountHasWrongFormat
+	| dotIx integerPart decimalPart |
+	
+	dotIx := amount indexOf: $. startingAt: 1 ifAbsent: [^true].
+	
+	integerPart := amount copyFrom: 1 to: (dotIx-1).
+	decimalPart := amount copyFrom: (dotIx+1) to: (amount size).
+	
+	^(integerPart size > 15) or: (decimalPart size > 2) 
+	or: (integerPart anySatisfy: [ :i | i isDigit not ]) or: (decimalPart anySatisfy: [ :i | i isDigit not ]).
+	! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:45:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:45:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:45:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:45:23'!
+PASSED!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:45:23'!
+PASSED!
+!CreditCardTest methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:51:59'!
+test06ValidCreditCardPassesCheck
+	| aCreditCardNumber expiration anOwner anAmount|
+	aCreditCardNumber := '5400000000000001'.
+	expiration := 122024.
+	anOwner := 'Pepe Sanchez'.
+	anAmount := '123123.10'.
+	creditCardChecker := 
+	 	CreditCardChecker 
+			withCCNumber: aCreditCardNumber 
+			expirationDate: expiration
+			owner: anOwner
+			andAmount: anAmount.
+	self assert: creditCardChecker check.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:52:04'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:05'!
+PASSED!
+
+!testRun: #CreditCardTest #test06ValidCreditCardPassesCheck stamp: 'FK 11/1/2023 23:52:05'!
+ERROR!
+
+!testRun: #CreditCardTest #test06ValidCreditCardPassesCheck stamp: 'FK 11/1/2023 23:52:05'!
+ERROR!
+!CreditCardChecker methodsFor: 'as yet unclassified' stamp: 'FK 11/1/2023 23:52:17' prior: 50655166!
+check
+	(creditCardNumber isEmpty) ifTrue: [^self error: (self class errorMessageCreditCardNumberIsEmpty)].
+	(self isExpired) ifTrue: [^self error: self class errorMessageCreditCardIsExpired].
+	(owner size > 30) ifTrue: [^self error: self class errorMessageOwnerNameIsTooLong].
+	(self amountHasWrongFormat) ifTrue: [^self error: self class errorMessageTransactionAmountWrongFormat].
+	^true.! !
+
+!testRun: #CreditCardTest #test01CreditCardNumberCannotBeEmpty stamp: 'FK 11/1/2023 23:52:20'!
+PASSED!
+
+!testRun: #CreditCardTest #test02ExpiredCreditCardDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:20'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardOwnerNameWithMoreThan30CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:20'!
+PASSED!
+
+!testRun: #CreditCardTest #test04TransactionAmountLargerThan18CharacterDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:20'!
+PASSED!
+
+!testRun: #CreditCardTest #test05TransactionAmountWithCharactersDoesNotPassCheck stamp: 'FK 11/1/2023 23:52:20'!
+PASSED!
+
+!testRun: #CreditCardTest #test06ValidCreditCardPassesCheck stamp: 'FK 11/1/2023 23:52:20'!
+PASSED!
+
+----SNAPSHOT----(1 November 2023 23:58:43) CuisUniversity-5981.image priorSource: 10337922!
