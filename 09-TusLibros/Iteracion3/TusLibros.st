@@ -269,9 +269,10 @@ TestCase subclass: #InterfaceTest
 	poolDictionaries: ''
 	category: 'TusLibros'!
 
-!InterfaceTest methodsFor: 'as yet unclassified' stamp: 'VB 11/8/2023 22:37:37'!
+!InterfaceTest methodsFor: 'as yet unclassified' stamp: 'FK 11/9/2023 15:57:05'!
 setUp
-	testObjectsFactory := (StoreTestObjectsFactory new).! !
+	testObjectsFactory := (StoreTestObjectsFactory new).
+	FakeDateAndTime initWithCurrentTime.! !
 
 !InterfaceTest methodsFor: 'as yet unclassified' stamp: 'VB 11/9/2023 11:14:00'!
 test01CreateCartWithNonRegisteredClientIdShouldFail
@@ -765,8 +766,8 @@ advance30Minutes
 goBack30Minutes
 	fakeNow := fakeNow - 30 minutes.! !
 
-!FakeDateAndTime class methodsFor: 'as yet unclassified' stamp: 'VB 11/9/2023 02:08:39'!
-initializeNew
+!FakeDateAndTime class methodsFor: 'as yet unclassified' stamp: 'FK 11/9/2023 15:57:05'!
+initWithCurrentTime
 	fakeNow := (DateAndTime now).! !
 
 !FakeDateAndTime class methodsFor: 'as yet unclassified' stamp: 'VB 11/9/2023 02:06:44'!
@@ -822,7 +823,7 @@ stolenCreditCardErrorDescription
 
 !classDefinition: #Interface category: 'TusLibros'!
 Object subclass: #Interface
-	instanceVariableNames: 'clients currentCarts catalog lastCartId clientsPurchases cartsCreationTimes clientByCartId fakeClock'
+	instanceVariableNames: 'clients currentCarts catalog lastCartId clientsPurchases cartsCreationTimes clientByCartId referenceClock'
 	classVariableNames: ''
 	poolDictionaries: ''
 	category: 'TusLibros'!
@@ -863,7 +864,7 @@ checkOutCart: aCartId withCreditCardNumber: aCCN expiringOn: anExpirationDate an
 	(clientsPurchases at: clientId) addAll: (cart items).
 	^transactionId.! !
 
-!Interface methodsFor: 'restInterface' stamp: 'VB 11/9/2023 11:52:52'!
+!Interface methodsFor: 'restInterface' stamp: 'FK 11/9/2023 15:36:50'!
 createCartFor: aClientId withPass: aPasswordString
 	| newCartId |	
 	
@@ -871,7 +872,7 @@ createCartFor: aClientId withPass: aPasswordString
 	newCartId := self newCartId.
 	currentCarts add: newCartId -> (Cart acceptingItemsOf: catalog).
 	clientByCartId add: newCartId -> aClientId.
-	cartsCreationTimes add: newCartId -> (fakeClock now).
+	cartsCreationTimes add: newCartId -> (referenceClock now).
 	^newCartId.! !
 
 !Interface methodsFor: 'restInterface' stamp: 'VB 11/9/2023 12:00:35'!
@@ -890,7 +891,7 @@ listPurchasesOfClient: aClientId withPass: aPasswordString
 	! !
 
 
-!Interface methodsFor: 'initialization' stamp: 'VB 11/9/2023 11:52:52'!
+!Interface methodsFor: 'initialization' stamp: 'FK 11/9/2023 15:36:50'!
 initializeWith: aClientDictionary andCatalog: aCatalog andClock: aDateAndTimeClass
 	clients := aClientDictionary.
 	catalog := aCatalog.
@@ -901,12 +902,12 @@ initializeWith: aClientDictionary andCatalog: aCatalog andClock: aDateAndTimeCla
 	currentCarts := Dictionary new.
 	clientByCartId := Dictionary new.
 	cartsCreationTimes := Dictionary new.
-	fakeClock := aDateAndTimeClass.! !
+	referenceClock := aDateAndTimeClass.! !
 
 
-!Interface methodsFor: 'testing' stamp: 'VB 11/9/2023 11:52:52'!
+!Interface methodsFor: 'testing' stamp: 'FK 11/9/2023 15:36:50'!
 isCartExpired: cartId
-	^(fakeClock now - (cartsCreationTimes at: cartId)) >= (30 minutes).! !
+	^(referenceClock now - (cartsCreationTimes at: cartId)) >= (30 minutes).! !
 
 
 !Interface methodsFor: 'queries' stamp: 'VB 11/9/2023 12:00:15'!
