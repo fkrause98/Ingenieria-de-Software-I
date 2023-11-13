@@ -1,0 +1,2777 @@
+
+
+----QUIT----(30 May 2023 00:05:32) CuisUniversity-5832.image priorSource: 4928100!
+
+----STARTUP---- (30 May 2023 00:05:33) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-5832.image!
+
+
+----QUIT----(30 May 2023 00:05:33) CuisUniversity-5832.image priorSource: 9366537!
+
+----STARTUP---- (12 November 2023 20:52:54) as /home/fran/Downloads/linux64 (1)/linux64/CuisUniversity-5832.image!
+
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibros-Model Ejercicio it4.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibrosREST Ejercicio it4.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibros-Tests Ejercicio it4.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/System/Collections-CompactArrays.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Compression.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Sound.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Cryptography-DigitalSignatures.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Identities-UUID.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/System/Network-Kernel.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/WebClient.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibrosREST.st----!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+
+WebServer reset!
+
+WebServer reset!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+WebServer reset!
+
+WebServer reset!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'NR 6/13/2022 07:08:06' prior: 50664362!
+listCart
+
+	| cartId |
+	
+	(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		currentSelectedCartContent := restInterface listCart: cartId.
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId ].! !
+
+WebServer reset!
+
+TusLibrosServerRestInterface installForDefaultSystem!
+
+TusLibrosClientTestWindow open!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.
+!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'NR 6/13/2022 07:07:36' prior: 50664333!
+addToCart
+
+	| cartId bookIsbn |
+
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'NR 6/9/2022 08:13:07' prior: 50664349!
+createCart
+
+	| newCartId |
+	
+	newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived! !
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+----STARTUP---- (12 November 2023 21:18:35) as /home/fran/Downloads/linux64 (1)/linux64/CuisUniversity-5832.image!
+
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/System/Collections-CompactArrays.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Compression.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Sound.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Cryptography-DigitalSignatures.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/Features/Identities-UUID.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/System/Network-Kernel.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/WebClient.pck.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibros-Model Ejercicio it4.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibrosREST Ejercicio it4.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibros-Tests Ejercicio it4.st----!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:24:20' prior: 50662450!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived] value
+	on: Error
+	do: [ Transcript print: 'holaaaaaaaaaaa'].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:24:34' prior: 50663916!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived] 
+	on: Error
+	do: [ Transcript print: 'holaaaaaaaaaaa'].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:27:58' prior: 50663927!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived] 
+	on: Error
+	do: [ :anError | Transcript print: 'holaaaaaaaaaaa'].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:30:52' prior: 50663938!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived] 
+	on: Error
+	do: [ :anError | self inform: 'holaaaaaaaaaaa'].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:32:21' prior: 50663949!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived] 
+	on: Error
+	do: [ :anError | self inform: anError messageText ].! !
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibrosREST.st----!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'FK 11/12/2023 19:37:25' prior: 50664398!
+addToCart
+
+	| cartId bookIsbn semaphore |
+	semaphore := Semaphore new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		[semaphore signal. restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.] fork.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)].
+	semaphore wait.! !
+
+!classRemoval: #TusLibrosServerRestInterface stamp: 'VB 11/12/2023 21:35:14'!
+Object subclass: #TusLibrosServerRestInterface
+	instanceVariableNames: 'systemFacade'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+!classRemoval: #TusLibrosClientTestWindowModel stamp: 'VB 11/12/2023 21:35:14'!
+Object subclass: #TusLibrosClientTestWindowModel
+	instanceVariableNames: 'cartIds selectedCartIdsIndex selectedBookCatalogIndex currentSelectedCartContent restInterface'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+!classRemoval: #TusLibrosClientRestInterface stamp: 'VB 11/12/2023 21:35:14'!
+Object subclass: #TusLibrosClientRestInterface
+	instanceVariableNames: 'port'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+!classRemoval: #DefaultMerchantProcessor stamp: 'VB 11/12/2023 21:35:14'!
+MerchantProcessor subclass: #DefaultMerchantProcessor
+	instanceVariableNames: 'transactionId'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+!classRemoval: #RealTimeClock stamp: 'VB 11/12/2023 21:35:15'!
+Clock subclass: #RealTimeClock
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+!classRemoval: #TusLibrosClientTestWindow stamp: 'VB 11/12/2023 21:35:15'!
+SystemWindow subclass: #TusLibrosClientTestWindow
+	instanceVariableNames: 'cartIdsListMorph booksCatalogListMorph cartContentListMorph addToCartButtonMorph listCartButtonMorph selectedCartLabelMorph'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibrosREST Ejercicio it4.st----!
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/TusLibros.st----!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:39:24' prior: 50665196!
+addToCart
+
+	| cartId bookIsbn |
+
+	[(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]
+	] on: Error
+	  do: [ :anError | self inform: anError messageText ]! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:40:46' prior: 50667736!
+addToCart
+
+	| cartId bookIsbn |
+
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:41:10' prior: 50665209!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived]
+	 on: Error
+	 do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:42:54' prior: 50667755!
+addToCart
+
+	| cartId bookIsbn |
+
+	[(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]]
+	on: Error
+	do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:43:35' prior: 50665218!
+listCart
+
+	| cartId |
+	
+	[(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		currentSelectedCartContent := restInterface listCart: cartId.
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId ].]
+	on: Error
+	do: [ :anError | self inform: anError messageText ]! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:48:47' prior: 50667779!
+addToCart
+
+	| cartId bookIsbn semaphore |
+
+	semaphore := Semaphore new.
+	[(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		[semaphore signal. restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.] fork.
+		semaphore wait.
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]]
+	on: Error
+	do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:50:18' prior: 50667768!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[ [semaphore signal. newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.] fork.
+	semaphore wait.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived]
+	 on: Error
+	 do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:51:02' prior: 50667794!
+listCart
+
+	| cartId semaphore |
+	semaphore := Semaphore new.
+	[(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		[semaphore signal. currentSelectedCartContent := restInterface listCart: cartId.] fork.
+		semaphore wait.
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId ].]
+	on: Error
+	do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:54:17' prior: 50667829!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[      [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] fork.
+	semaphore wait.
+	self triggerEvent: #newCartIdArrived]
+	 on: Error
+	 do: [ :anError | self inform: anError messageText ]! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+Object subclass: #XXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+
+!classDefinition: #XXX category: 'TusLibrosREST' stamp: 'VB 11/12/2023 22:31:42'!
+Object subclass: #XXX
+	instanceVariableNames: ''
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'TusLibrosREST'!
+!XXX methodsFor: 'nil' stamp: 'VB 11/12/2023 22:33:11'!
+m: aClosure
+	[aClosure value]
+	on: Error
+	do: [ :anError | self inform: anError messageText ].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 22:34:24' prior: 50667811!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	xxx m: [(self areCartIdAndBookSelected) ifTrue:[
+			cartId := self selectedCartId.
+			bookIsbn := self selectedBook.
+			[semaphore signal. restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.] fork.
+			semaphore wait.
+			self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId)]]! !
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+WebServer reset.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:41:10' prior: 50667859!
+createCart
+
+	| newCartId |
+	
+	[newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived]
+	 on: Error
+	 do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 21:54:17' prior: 50667918!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[      [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] fork.
+	semaphore wait.
+	self triggerEvent: #newCartIdArrived]
+	 on: Error
+	 do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 22:38:19' prior: 50667929!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[      [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] fork.
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.]
+	 on: Error
+	 do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 22:38:52' prior: 50667843!
+listCart
+
+	| cartId semaphore |
+	semaphore := Semaphore new.
+	[(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		[semaphore signal. currentSelectedCartContent := restInterface listCart: cartId.] fork.
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait. ].]
+	on: Error
+	do: [ :anError | self inform: anError messageText ]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 22:39:12' prior: 50667893!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	xxx m: [(self areCartIdAndBookSelected) ifTrue:[
+			cartId := self selectedCartId.
+			bookIsbn := self selectedBook.
+			[semaphore signal. restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId.] fork.
+			self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+			semaphore wait.]]! !
+
+WebServer reset.!
+
+WebServer reset.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 22:53:08' prior: 50667944!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[[semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] fork.
+	self triggerEvent: #newCartIdArrived.
+	]
+	ensure: [ semaphore wait. ].! !
+
+TusLibrosClientTestWindow  open!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 22:59:43' prior: 50667993!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[semaphore critical: ([semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] fork) ifError: [:anError | self inform: anError].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.]
+! !
+
+TusLibrosClientTestWindow  open !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:00:24' prior: 50668007!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[semaphore critical: ([semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] fork) ifError: [:anError | Transcript print: ':)'].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.]
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:01:33' prior: 50668023!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[[semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.] forkAndWait.
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.]
+	on: Error
+	do: [:anError | Transcript print: 'Hello'.]
+! !
+
+----End fileIn of /home/fran/Downloads/linux64 (1)/linux64/Packages/TerseGuide.pck.st----!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:03:40' prior: 50668038!
+createCart
+
+	| newCartId semaphore |
+	
+	semaphore := Semaphore new.
+	[[semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.]
+		on: Error
+		do: [:anError | self inform: anError messageText].
+	 ] fork.
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:09:48' prior: 50670973!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	[xxx m:
+		[semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.]
+	 ] fork.
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+! !
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:11:58' prior: 50670988!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/12/2023 23:12:43'!
+m: aClosure n: aSemaphore
+	[
+		[aClosure value]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+	aSemaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:12:53' prior: 50671003!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.]
+		n: semaphore .
+	self triggerEvent: #newCartIdArrived.
+! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/12/2023 23:14:28' prior: 50671015!
+m: aClosure n: aSemaphore
+	[
+		[aClosure value]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:14:34' prior: 50671024!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.]
+		n: semaphore .
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/12/2023 23:16:41' prior: 50671043!
+m: aClosure n: aSemaphore
+	[
+		[aClosure value]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] forkAndWait.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:16:43' prior: 50671051!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		semaphore signal.
+		cartIds add: newCartId.]
+		n: semaphore .
+	self triggerEvent: #newCartIdArrived.
+! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/12/2023 23:16:58' prior: 50671064!
+m: aClosure n: aSemaphore
+	[
+		[aClosure value]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:18:45' prior: 50671072!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.]
+		n: semaphore .
+	self triggerEvent: #newCartIdArrived.
+! !
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:20:48' prior: 50671093!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [semaphore signal.
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.]
+		n: semaphore .
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.! !
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/12/2023 23:23:09' prior: 50671085!
+m: aClosure n: aSemaphore
+	
+	[
+		[
+			aSemaphore signal.
+			aClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:23:21' prior: 50671109!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	semaphore := Semaphore new.
+	xxx := XXX new.
+	
+	xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.]
+		n: semaphore .
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+	! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/12/2023 23:26:11' prior: 50667886!
+m: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			aClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:26:15' prior: 50671137!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	
+	semaphore := 
+	 xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+	! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:29:36' prior: 50667959!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	[(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId.].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait. ].]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:29:47' prior: 50671177!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	[(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		semaphore := xxx m: [
+				currentSelectedCartContent := restInterface listCart: cartId.].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait. ].]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:30:04' prior: 50671191!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	[(self isCartIdSelected) ifTrue:[
+		cartId := self selectedCartId.
+		semaphore := 
+			xxx m: [
+				currentSelectedCartContent := restInterface listCart: cartId.].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait. ].]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:31:08' prior: 50671205!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := 
+			xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:32:44' prior: 50667975!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+
+	xxx := XXX new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := 
+			xxx m: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:33:06' prior: 50671162!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+	! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:33:18' prior: 50671233!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+
+	xxx := XXX new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := xxx m: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:33:39' prior: 50671219!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:33:52' prior: 50671249!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+	! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/12/2023 23:42:01' prior: 50671277!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		Transcript print: 'hola manola'.
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+		Transcript print: 'chau manola'.].! !
+!TusLibrosClientTestWindow methodsFor: 'events' stamp: 'VB 11/12/2023 23:55:50' prior: 50664830!
+refreshListOfCartIds
+	Transcript print: 'Probando'.
+	cartIdsListMorph updateList
+	! !
+!TusLibrosClientTestWindow methodsFor: 'events' stamp: 'VB 11/12/2023 23:57:02' prior: 50671321!
+refreshListOfCartIds
+	Transcript print: 'Probando', Character newLineCharacter asString.
+	cartIdsListMorph updateList
+	! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindow methodsFor: 'events' stamp: 'VB 11/12/2023 23:58:22' prior: 50671327!
+refreshListOfCartIds
+	cartIdsListMorph updateList
+	! !
+!TusLibrosClientTestWindow methodsFor: 'events' stamp: 'VB 11/12/2023 23:59:22' prior: 50664822!
+refreshCurrentSelectedCartContent: cartId
+	Transcript print: 'refreshing'.
+	cartContentListMorph updateList.
+	selectedCartLabelMorph contents: 'Books in CartId: ', cartId
+	
+	
+	! !
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:06:10' prior: 50671291!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.].
+	newCartId := 'Creating ...'.
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+	! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:10:57' prior: 50671365!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.].
+	newCartId := 'Creating ...'.
+	semaphore wait.
+	! !
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:12:37' prior: 50671378!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.].
+	newCartId := 'Creating ...'.
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+	! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:14:16' prior: 50671406!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.].
+	"
+	newCartId := 'Creating ...'.
+	self triggerEvent: #newCartIdArrived."
+	semaphore wait.
+	! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.
+!
+
+WebServer reset.
+!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosClientTestWindow!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:19:04' prior: 50671430!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: 'loading..'.
+		self triggerEvent: #newCartIdArrived.].
+	"
+	newCartId := 'Creating ...'.
+	self triggerEvent: #newCartIdArrived."
+	semaphore wait.
+	! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:20:06' prior: 50671468!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.].
+	semaphore wait.
+	self triggerEvent: #newCartIdArrived.
+! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:21:30' prior: 50671482!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+
+! !
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.
+!
+
+WebServer reset.
+!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.
+!
+
+installForDefaultSystem!
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosServerRestInterface installForDefaultSystem.
+!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:24:33' prior: 50671506!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		self triggerEvent: #newCartIdArrived.
+		cartIds add: newCartId.
+		].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:24:52' prior: 50671556!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.
+		].
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:28:45' prior: 50671569!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [ [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		] ensure: [self triggerEvent: #newCartIdArrived.]
+		].
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:30:57' prior: 50671584!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		].
+	self triggerEvent: #newCartIdArrived.
+	semaphore wait.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:31:15' prior: 50671600!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		].
+	semaphore wait.
+	self triggerEvent: #newCartIdArrived.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:32:10' prior: 50671612!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.].
+	
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:35:20' prior: 50671624!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.
+		self changed].
+	
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindow methodsFor: 'events' stamp: 'VB 11/13/2023 00:36:09' prior: 50671342!
+refreshCurrentSelectedCartContent: cartId
+	cartContentListMorph updateList.
+	selectedCartLabelMorph contents: 'Books in CartId: ', cartId
+	
+	
+	! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:40:04' prior: 50671639!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.
+		self inform: 'New cart id'.].
+	
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 00:46:55'!
+m: aClosure whenDone: whenDoneClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			aClosure value.
+			whenDoneClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:47:40' prior: 50671667!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+
+		.]
+		whenDone: [ 	
+				self triggerEvent: #newCartIdArrived.
+				self inform: 'New cart id'
+		].
+	
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:48:28' prior: 50671697!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		.]
+		whenDone: [ 	
+				self triggerEvent: #newCartIdArrived.
+				self inform: 'New cart id'
+		].
+	
+	semaphore wait.
+
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:51:22' prior: 50671306!
+listCart
+
+	| cartId semaphore xxx |
+	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+	].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 00:58:20' prior: 50671714!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.
+		self inform: 'New cart id'
+		.].
+	
+	semaphore wait.
+
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:18:41' prior: 50671752!
+createCart
+
+	| newCartId semaphore xxx |
+	
+	xxx := XXX new.
+	semaphore := xxx m: [
+		newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+		cartIds add: newCartId.
+		self triggerEvent: #newCartIdArrived.
+		self inform: 'New cart id'.].
+	
+	semaphore wait.
+
+! !
+
+!methodRemoval: XXX #m:whenDone: stamp: 'VB 11/13/2023 01:19:06'!
+m: aClosure whenDone: whenDoneClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			aClosure value.
+			whenDoneClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+	^semaphore
+!
+
+!methodRemoval: XXX #m:n: stamp: 'VB 11/13/2023 01:19:08'!
+m: aClosure n: aSemaphore
+	
+	[
+		[
+			aSemaphore signal.
+			aClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+
+!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'NR 6/9/2022 08:13:07' prior: 50671765!
+createCart
+
+	| newCartId |
+	
+	newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived! !
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'VB 11/13/2023 01:25:58' prior: 50665083!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp xxx sem |
+	xxx := XXX new.
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	sem := xxx m: [
+		resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+	].
+	sem wait.	
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'VB 11/13/2023 01:26:11' prior: 50671803!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp xxx sem |
+	xxx := XXX new.
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	sem := xxx m: [
+		resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+	].
+
+	sem wait.	
+	
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 01:26:35'!
+m: aClosure whenDone: anotherClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			aClosure value.
+			anotherClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'VB 11/13/2023 01:28:11' prior: 50671823!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp xxx sem |
+	xxx := XXX new.
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	sem := xxx m: [
+		resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+	] whenDone:
+	 [
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]	
+	].
+
+	sem wait.	
+	
+	! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 01:31:21' prior: 50671838!
+m: aClosure whenDone: anotherClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			aClosure value.
+			semaphore signal.
+			anotherClosure value.
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:31:56' prior: 50671794!
+createCart
+
+	| newCartId |
+	
+	newCartId := (restInterface createCartFor: 'hernan' password: 'smalltalk') wait..
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:31:58' prior: 50671878!
+createCart
+
+	| newCartId |
+	
+	newCartId := (restInterface createCartFor: 'hernan' password: 'smalltalk') wait.
+	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived! !
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'VB 11/13/2023 01:32:45' prior: 50671849!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp xxx sem |
+	xxx := XXX new.
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	sem := xxx m: [
+		resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+	] whenDone:
+	 [
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]	
+	].
+
+	^sem wait.	
+	
+	! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:34:44' prior: 50671888!
+createCart
+
+	| newCartId |
+	
+	newCartId := (restInterface createCartFor: 'hernan' password: 'smalltalk').
+	cartIds add: 'loading'.
+	self triggerEvent: #newCartIdArrived.
+	newCartId wait.! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:35:26' prior: 50671918!
+createCart
+
+	| newCartId xxx |
+	xxx := XXX new.
+	newCartId := (restInterface createCartFor: 'hernan' password: 'smalltalk').
+	cartIds add: 'loading'.
+	self triggerEvent: #newCartIdArrived.
+	newCartId wait.! !
+!TusLibrosClientRestInterface methodsFor: 'requests' stamp: 'NR 6/9/2022 08:11:20' prior: 50671897!
+createCartFor: aUser password: aPassword
+
+	| fieldDict resp |
+	
+	fieldDict := Dictionary newFromPairs: {'clientId'. aUser. 'password'. aPassword}.		
+	
+	resp := WebClient htmlSubmit: (self url,'/createCart') fields: fieldDict.
+		
+	resp isSuccess 
+		ifTrue:[^(WebUtils jsonDecode: ((resp content) readStream))] 
+		ifFalse:[^self error: resp content]! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:37:21' prior: 50671928!
+createCart
+
+	| newCartId xxx req|
+	xxx := XXX new.
+	req := xxx m: [newCartId := (restInterface createCartFor: 'hernan' password: 'smalltalk')] whenDone: [ 	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived].
+	req wait.
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:38:48' prior: 50671953!
+createCart
+
+	| newCartId xxx req|
+	xxx := XXX new.
+	req := xxx
+		 m: [newCartId := (restInterface createCartFor: 'hernan' password: 'smalltalk')]
+		 whenDone: [ 	cartIds add: newCartId.
+	self triggerEvent: #newCartIdArrived].
+	req wait.
+! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 01:40:04' prior: 50671866!
+m: aClosure whenDone: anotherClosure
+	| semaphore firstClosureValue |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			firstClosureValue := aClosure value.
+			semaphore signal.
+			anotherClosure value: firstClosureValue .
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 01:41:01' prior: 50671968!
+createCart
+
+	| xxx req |
+	xxx := XXX new.
+	req := xxx
+		 m: [restInterface createCartFor: 'hernan' password: 'smalltalk']
+		 whenDone: [ :newCartId |
+			 	cartIds add: newCartId.
+				self triggerEvent: #newCartIdArrived].
+	req wait.
+! !
+
+WebServer reset.
+
+TusLibrosServerRestInterface installForDefaultSystem.
+
+
+TusLibrosClientTestWindow open.!
+
+TusLibrosClientTestWindow open.!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 12:54:32' prior: 50671993!
+createCart
+
+	| newCartId xxx req |
+	xxx := XXX new.
+	req := xxx m: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+				cartIds add: newCartId.
+				self triggerEvent: #newCartIdArrived].
+	req wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 12:55:02' prior: 50672012!
+createCart
+
+	| newCartId xxx semaphore |
+	xxx := XXX new.
+	semaphore := xxx m: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+				cartIds add: newCartId.
+				self triggerEvent: #newCartIdArrived].
+	semaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 12:55:16' prior: 50672023!
+createCart
+
+	| newCartId xxx semaphore |
+	xxx := XXX new.
+	semaphore := xxx m: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+						cartIds add: newCartId.
+						self triggerEvent: #newCartIdArrived].
+	semaphore wait.
+! !
+
+!methodRemoval: XXX #m:whenDone: stamp: 'VB 11/13/2023 12:56:17'!
+m: aClosure whenDone: anotherClosure
+	| semaphore firstClosureValue |
+	semaphore := Semaphore new.
+	[
+		[
+			semaphore signal.
+			firstClosureValue := aClosure value.
+			semaphore signal.
+			anotherClosure value: firstClosureValue .
+		]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+!
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 12:57:53' prior: 50671152!
+m: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 12:58:07' prior: 50672058!
+m: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 12:59:00' prior: 50671261!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+	xxx := XXX new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := xxx m: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 12:59:07' prior: 50671738!
+listCart
+
+	| cartId semaphore xxx |	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+	].! !
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:05:32'!
+addThread: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:05:32' prior: 50672035!
+createCart
+
+	| newCartId xxx semaphore |
+	xxx := XXX new.
+	semaphore := xxx addThread: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+						cartIds add: newCartId.
+						self triggerEvent: #newCartIdArrived].
+	semaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:05:32' prior: 50672077!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+	xxx := XXX new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := xxx addThread: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:05:32' prior: 50672093!
+listCart
+
+	| cartId semaphore xxx |	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx addThread: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+	].! !
+
+!methodRemoval: XXX #m: stamp: 'VB 11/13/2023 13:05:32'!
+m: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+!
+!XXX methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:06:53'!
+m: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:06:53' prior: 50672115!
+createCart
+
+	| newCartId xxx semaphore |
+	xxx := XXX new.
+	semaphore := xxx m: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+						cartIds add: newCartId.
+						self triggerEvent: #newCartIdArrived].
+	semaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:06:53' prior: 50672127!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+	xxx := XXX new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := xxx m: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:06:53' prior: 50672143!
+listCart
+
+	| cartId semaphore xxx |	
+	xxx := XXX new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+	].! !
+
+!methodRemoval: XXX #addThread: stamp: 'VB 11/13/2023 13:06:53'!
+addThread: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+!
+!XXX class methodsFor: 'nil' stamp: 'VB 11/13/2023 13:08:28'!
+from: aClosure
+	^self new initializeWith: aClosure.! !
+!XXX class methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:09:18' prior: 50672221!
+from: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore.! !
+
+!classRenamed: #XXX as: #WaitableClosure stamp: 'VB 11/13/2023 13:09:41'!
+Smalltalk renameClassNamed: #XXX as: #WaitableClosure!
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:09:41' prior: 50672173!
+createCart
+
+	| newCartId xxx semaphore |
+	xxx := WaitableClosure new.
+	semaphore := xxx m: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+						cartIds add: newCartId.
+						self triggerEvent: #newCartIdArrived].
+	semaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:09:41' prior: 50672185!
+addToCart
+
+	| cartId bookIsbn semaphore xxx |
+	xxx := WaitableClosure new.
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := xxx m: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'as yet unclassified' stamp: 'VB 11/13/2023 13:09:41' prior: 50672201!
+listCart
+
+	| cartId semaphore xxx |	
+	xxx := WaitableClosure new.
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := xxx m: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+	].! !
+
+!methodRemoval: WaitableClosure class #from: stamp: 'VB 11/13/2023 13:09:51'!
+from: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore.!
+!WaitableClosure class methodsFor: 'nil' stamp: 'VB 11/13/2023 13:10:10'!
+from: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore! !
+
+!methodRemoval: WaitableClosure #m: stamp: 'VB 11/13/2023 13:10:19'!
+m: aClosure
+	| semaphore |
+	semaphore := Semaphore new.
+	[
+		[semaphore signal.
+		 aClosure value.]
+		on: Error
+		do: [ :anError | self inform: anError messageText ]
+	] fork.
+	^semaphore
+!
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 13:11:03' prior: 50672252!
+addToCart
+
+	| cartId bookIsbn semaphore |
+	(self areCartIdAndBookSelected) ifTrue:[
+		cartId := self selectedCartId.
+		bookIsbn := self selectedBook.
+		semaphore := WaitableClosure from: [ restInterface add: 1 of: bookIsbn toCartIdentifiedAs: cartId. ].
+		self triggerEvent: #bookAddedToCart withArguments: (Array with: bookIsbn with: cartId).
+		semaphore wait.].! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 13:11:25' prior: 50672240!
+createCart
+
+	| newCartId semaphore |
+	semaphore := WaitableClosure from: [newCartId := restInterface createCartFor: 'hernan' password: 'smalltalk'.
+						cartIds add: newCartId.
+						self triggerEvent: #newCartIdArrived].
+	semaphore wait.
+! !
+!TusLibrosClientTestWindowModel methodsFor: 'buttonSelectors' stamp: 'VB 11/13/2023 13:11:46' prior: 50672268!
+listCart
+
+	| cartId semaphore |	
+	(self isCartIdSelected) ifTrue: [
+		cartId := self selectedCartId.
+		semaphore := WaitableClosure from: [ currentSelectedCartContent := restInterface listCart: cartId. ].
+		self triggerEvent: #newCurrentSelectedCartContentArrived with: cartId.
+		semaphore wait.
+	].! !
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberWithLessThan16DigitsIsNotValid stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNumberWithMoreThan16DigitsIsNotValid stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardNumberShouldBeDigitsOnly stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test04NameCanNotBeEmpty stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test05IsExpiredOnNextExpirationMonth stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test06IsNotExpiredOnExpirationMonth stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #CreditCardTest #test07CanGetCreditCardInfoFromIt stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:13'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:14'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:15'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:24'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:27'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:29'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:30'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:31'!
+ERROR!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:32'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:33'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:34'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:35'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:37'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:38'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:39'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:42'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:43'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:44'!
+PASSED!
+
+!testRun: #CartTest #test01NewCartsAreCreatedEmpty stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test02CanNotAddItemsThatDoNotBelongToStore stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test03AfterAddingAnItemTheCartIsNotEmptyAnymore stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test04CanNotAddNonPositiveNumberOfItems stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test05CanNotAddMoreThanOneItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test06CartRemembersAddedItems stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test07CartDoesNotHoldNotAddedItems stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CartTest #test08CartRemembersTheNumberOfAddedItems stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CashierTest #test01CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CashierTest #test02CalculatedTotalIsCorrect stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CashierTest #test03CanNotCheckoutWithAnExpiredCreditCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CashierTest #test04CheckoutRegistersASale stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CashierTest #test05CashierChargesCreditCardUsingMerchantProcessor stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CashierTest #test06CashierDoesNotSaleWhenTheCreditCardHasNoCredit stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test01CreditCardNumberWithLessThan16DigitsIsNotValid stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test02CreditCardNumberWithMoreThan16DigitsIsNotValid stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test03CreditCardNumberShouldBeDigitsOnly stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test04NameCanNotBeEmpty stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test05IsExpiredOnNextExpirationMonth stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test06IsNotExpiredOnExpirationMonth stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #CreditCardTest #test07CanGetCreditCardInfoFromIt stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test01CanCreateCartWithValidUserAndPassword stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test02CanNotCreateCartWithInvalidUser stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test03CanNotCreateCartWithInvalidPassword stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test04CanAddItemsToACreatedCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test05CanNotAddItemToNotCreatedCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test06CanNotAddItemNotSellByTheStore stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test08CanNotListCartOfInvalidCartId stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test09ListCartReturnsTheRightNumberOfItems stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10CheckOutReturnsTransactionIdAndImpactsCustomerPurchases stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test10_1_CanNotCheckoutAnAlreadyCheckedOutCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test11CanNotCheckoutANotCreatedCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test12CanNotCheckoutAnEmptyCart stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test13CanNotCheckoutWithAnExpiredCreditCard stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test14ListPurchasesIncludesBoughtItems stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test15CanNotListPurchasesOfInvalidCustomer stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test16CanNotListPurchasesOfValidCustomerWithInvalidPassword stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test17CanNotAddToCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test18CanNotListCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test19CanNotCheckOutCartWhenSessionIsExpired stamp: 'VB 11/13/2023 13:13:46'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test20BookPerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:47'!
+PASSED!
+
+!testRun: #TusLibrosSystemFacadeTest #test21StorePerformanceShouldNotTakeTooLong stamp: 'VB 11/13/2023 13:13:48'!
+PASSED!
+
+WebServer reset.!
+
+TusLibrosServerRestInterface installForDefaultSystem.!
+
+TusLibrosClientTestWindow open.!
+
+----SNAPSHOT----(13 November 2023 13:26:51) CuisUniversity-5832.image priorSource: 9366758!
+
+----SNAPSHOT----(13 November 2023 13:26:54) CuisUniversity-5832.image priorSource: 10925462!
+
+----SNAPSHOT----(13 November 2023 13:26:57) CuisUniversity-5832.image priorSource: 10925555!
