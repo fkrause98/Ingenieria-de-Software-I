@@ -1,0 +1,3673 @@
+
+
+----QUIT----(13 August 2023 19:14:09) CuisUniversity-5981.image priorSource: 5713367!
+
+----STARTUP---- (13 August 2023 19:14:10) as /Users/hernan/Documents/Cuis/5.0-64Bits/Cuis-University-Installer/CuisUniversity-5981.image!
+
+
+----QUIT----(13 August 2023 19:14:10) CuisUniversity-5981.image priorSource: 10197065!
+
+----STARTUP---- (14 November 2023 20:46:56) as /Users/fran/Documents/Facultad/Inge1/macos64/CuisUniversity-5981.image!
+
+
+----End fileIn of /Users/fran/Documents/Facultad/Inge1/macos64/CustomerImporter.st----!
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:54' prior: 50650418!
+province
+
+	^province! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:54' prior: 50650439!
+town
+
+	^town! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:54' prior: 50650448!
+zipCode: aZipCode
+
+	zipCode := aZipCode! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:54' prior: 50650428!
+streetName: aStreetName
+
+	streetName := aStreetName ! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:54' prior: 50650425!
+streetName
+
+	^streetName ! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650445!
+zipCode
+
+	^zipCode! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650432!
+streetNumber
+
+	^streetNumber ! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650421!
+province: aProvince
+
+	province := aProvince
+	! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650435!
+streetNumber: aStreetNumber
+
+	streetNumber := aStreetNumber ! !
+!Address methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650442!
+town: aTown
+
+	town := aTown! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650467!
+addAddress: anAddress
+
+	addresses add: anAddress ! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650508 overrides: 16920235!
+initialize
+
+	super initialize.
+	addresses := OrderedCollection new.! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650471!
+addresses
+
+	^ addresses! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650477!
+firstName: aName
+
+	firstName := aName! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650502!
+identificationType: anIdentificationType
+
+	identificationType := anIdentificationType! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650474!
+firstName
+
+	^firstName ! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650498!
+identificationType
+
+	^identificationType ! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650481!
+lastName
+
+	^lastName ! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650484!
+lastName: aLastName
+
+	lastName := aLastName
+! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650492!
+identificationNumber: anIdentificationNumber
+
+	identificationNumber := anIdentificationNumber! !
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650488!
+identificationNumber
+
+	^identificationNumber ! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650547!
+delay
+
+	(Delay forMilliseconds: 100) wait! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650537!
+close
+
+	! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650574!
+persist: anObject
+
+	| table |
+
+	self delay.
+	table := tables at: anObject class ifAbsentPut: [ Set new ].
+
+	self defineIdOf: anObject.
+	table add: anObject.
+
+	(anObject isKindOf: Customer) ifTrue: [ self persistAddressesOf: anObject ].! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650557!
+persistAddressesOf: anObjectWithAddresses
+
+	anObjectWithAddresses addresses do: [ :anAddress | self persist: anAddress ]
+	! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650527!
+beginTransaction
+
+	! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650564!
+initializeFor: aConfiguration
+
+	configuration := aConfiguration.
+	tables := Dictionary new.
+	id := 0.! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650570!
+newIdFor: anObject
+
+	id := id + 1.
+	^id! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650541!
+defineIdOf: anObject
+
+	anObject instVarNamed: 'id' put: (self newIdFor: anObject).! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650552!
+objectsOfType: aType
+
+	^ tables at: aType ifAbsent: [ #() ]! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650531!
+commit
+
+	(tables at: Customer ifAbsent: [#()]) do: [ :aCustomer | self persistAddressesOf: aCustomer ]
+	! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650584!
+select: aCondition ofType: aType
+
+	self delay.
+	^(self objectsOfType: aType) select: aCondition ! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650590!
+selectAllOfType: aType
+
+	self delay.
+	^(self objectsOfType: aType) copy ! !
+!DataBaseSession class methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650604!
+for: aConfiguration
+
+	^self new initializeFor: aConfiguration! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650394 overrides: 16961394!
+setUp
+	session := DataBaseSession for: (Array with: Address with: Customer).
+! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650335!
+test01Import
+	| numberOfCustomers  customer customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D' and: [ aCustomer identificationNumber = '22333444' ]] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer := customers anyOne.
+	self assert:  customer firstName equals: 'Pepe'.
+	self assert: customer lastName equals: 'Sanchez'.
+	self assert: customer identificationType equals: 'D'.
+	self assert: customer identificationNumber equals: '22333444'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650400 overrides: 16961402!
+tearDown
+	session commit.
+	session close.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 20:47:55' prior: 50650357!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: 'input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newCustomer addAddress: newAddress.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth ].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 20:48:01'!
+ERROR!
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 20:48:01'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 20:49:01' prior: 50650829!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge 1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newCustomer addAddress: newAddress.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth ].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 20:49:03'!
+ERROR!
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 20:49:03'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 20:49:18' prior: 50650871!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newCustomer addAddress: newAddress.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth ].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 20:49:19'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 20:50:08'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:02:32' prior: 50650800!
+test01Import
+	| numberOfCustomers  customer customer2 customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer := customers anyOne.
+	self assert:  customer firstName equals: 'Pepe'.
+	self assert: customer lastName equals: 'Sanchez'.
+	self assert: customer identificationType equals: 'D'.
+	self assert: customer identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	
+	customer := customers anyOne.
+	self assert:  customer firstName equals: 'Pepe'.
+	self assert: customer lastName equals: 'Sanchez'.
+	self assert: customer identificationType equals: 'D'.
+	self assert: customer identificationNumber equals: '22333444'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:02:49' prior: 50650958!
+test01Import
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:03:41' prior: 50650991!
+test01Import
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 21:03:43'!
+PASSED!
+
+!testRun: #ImportTest #test01Import stamp: 'FK 11/14/2023 21:03:44'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:05:01'!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+
+!methodRemoval: ImportTest #test01Import stamp: 'FK 11/14/2023 21:05:03'!
+test01Import
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 21:05:05'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:12:56'!
+test02CheckAddressOfBothCustomers
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:15:16' prior: 50651132!
+test02CheckAddressOfBothCustomers
+	| customer1 customer2 customers |
+	self importCustomers.
+
+	customers := session selectAllOfType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:22:43' prior: 50651167!
+test02CheckAddressOfBothCustomers
+	| customer1 customer1FirstAddress customer2 customers |
+	self importCustomers.
+
+	customer1 := session select: [:aCustomer | aCustomer firstName = 'Pepe'] ofType: Customer.
+	
+	customer1FirstAddress := session select: [:anAddress | anAddress province  = 'BsAs' ] ofType: Address.
+
+	self assert:  customer1FirstAddress  equals: 'Juan'.
+	self assert: customer1FirstAddress lastName equals: 'Perez'.
+	self assert: customer1FirstAddress identificationType equals: 'C'.
+	self assert: customer1FirstAddress identificationNumber equals: '23-25666777-9'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:27:05' prior: 50651197!
+test02CheckAddressOfBothCustomers
+	| customer1 customer1FirstAddress customer1SecondAddress |
+	self importCustomers.
+
+	customer1 := session select: [:aCustomer | aCustomer firstName = 'Pepe'] ofType: Customer.
+	
+	customer1FirstAddress := session select: [:anAddress | anAddress province  = 'BsAs' ] ofType: Address.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: '3322'.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: '1636'.
+	
+	customer1SecondAddress := session select: [:anAddress | anAddress province  = 'Buenos Aires' ] ofType: Address.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: '888'.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: '1122'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:27:05' prior: 50651219!
+test02CheckAddressOfBothCustomers
+	| customer1 customer1FirstAddress customer1SecondAddress mmers.
+
+	customer1 := session select: [:aCustomer | aCustomer firstName = 'Pepe'] ofType: Customer.
+	
+	customer1FirstAddress := session select: [:anAddress | anAddress province  = 'BsAs' ] ofType: Address.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: '3322'.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: '1636'.
+	
+	customer1SecondAddress := session select: [:anAddress | anAddress province  = 'Buenos Aires' ] ofType: Address.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: '888'.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: '1122'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:28:43' prior: 50651252!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress |.
+
+	self importCustomers.
+		
+	customer1FirstAddress := session select: [:anAddress | anAddress province  = 'BsAs' ] ofType: Address.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: '3322'.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: '1636'.
+	
+	customer1SecondAddress := session select: [:anAddress | anAddress province  = 'Buenos Aires' ] ofType: Address.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: '888'.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: '1122'.! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:28:45'!
+ERROR!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:29:06' prior: 50651284!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress |.
+
+	self importCustomers.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province  = 'BsAs' ] ofType: Address) anyOne .
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: '3322'.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: '1636'.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province  = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: '888'.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: '1122'.! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:29:08'!
+ERROR!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:29:17' prior: 50651317!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress |.
+
+	self importCustomers.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province  = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: '3322'.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: '1636'.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province  = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: '888'.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: '1122'.! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:29:18'!
+ERROR!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:30:08' prior: 50651350!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress |.
+
+	self importCustomers.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: '3322'.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: '1636'.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: '888'.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: '1122'.! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:32:17'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:34:11' prior: 50650914!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newCustomer addAddress: newAddress.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			session persist: newAddress
+			 ].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:36:03' prior: 50651416!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newCustomer addAddress: newAddress.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:38:42' prior: 50651455!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			newCustomer addAddress: newAddress.].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 21:39:18' prior: 50651383!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress |.
+
+	self importCustomers.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:39:25'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:45:23' prior: 50651493!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			newCustomer addAddress: newAddress.
+			session persist: newCustomer].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 21:45:32'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:45:34'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:45:35'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:45:57' prior: 50651565!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			newCustomer addAddress: newAddress.].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:47:36' prior: 50651613!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			session persist: newCustomer ].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			newCustomer addAddress: newAddress.
+			session persist: newAddress ].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 21:47:44'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:47:48'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:47:49'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 21:54:59' prior: 50651651!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:55:14'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:55:15'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:57:20'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 21:57:21'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 22:04:26' prior: 50651699!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData fourth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 22:04:38'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 22:04:39'!
+ERROR!
+
+self objectsOfType: Address.!
+
+self objectsOfType: Address.!
+
+self objectsOfType: Address.!
+
+self objectsOfType: Address.!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 22:07:25' prior: 50651751!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line |
+
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 22:07:38'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 22:07:49'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 22:09:37' prior: 50651532!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 22:09:40'!
+PASSED!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 22:09:41'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 22:09:42'!
+PASSED!
+
+PositionableStream on: 'Smalltalk? Yo quería Mani'.!
+
+stream nextLine.!
+
+stream nextLine.!
+
+stream.!
+
+stream := PositionableStream on: 'Smalltalk? Yo quería Mani'.!
+
+stream!
+
+stream next.!
+
+stream nextLine.!
+
+self beginsWith: 'S'.!
+
+self nextLine!
+
+self nextLine!
+
+stream := Stream on: 'Smalltalk? Yo quería Mani A la grande le puse cuca'.!
+
+nl := stream nextLine.!
+
+| stream nl|
+
+stream := PositionableStream on: 'Smalltalk? Yo quería Mani A la grande le puse cuca'.
+
+nl := stream nextLine.!
+
+stream := PositionableStream on: 'Smalltalk? Yo quería Mani A la grande le puse cuca'.
+!
+
+nl := stream nextLine.!
+
+nl!
+
+stream := PositionableStream 
+	on: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter), 'Hola'.!
+
+nl!
+
+stream!
+
+self nextLine!
+
+self !
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+| stream nl |
+
+stream := PositionableStream 
+	with: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter) asString, 'Hola'.
+
+nl := stream nextLine.!
+
+stream := PositionableStream 
+	with: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter) asString, 'Hola'.!
+
+stream := PositionableStream 
+	on: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter) asString, 'Hola'.!
+
+stream!
+
+self nextLine!
+
+self nextLine!
+
+| stream nl c |!
+
+c := Set new.!
+
+c add: 'Smalltalk?'.!
+
+c add: 'Yo quería Mani A la grande le puse cuca'.!
+
+stream := PositionableStream on: c.!
+
+nl := stream nextLine.!
+
+stream := ReadStream on: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter) asString, 'Hola'.!
+
+nl := stream nextLine.!
+
+nl!
+
+stream!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+stream := ReadStream on: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter) asString, 'Hola'.!
+
+stream := ReadStream on: 'Smalltalk? Yo quería Mani A la grande le puse cuca', (Character newLineCharacter) asString, 'Hola'.!
+
+stream!
+
+self nextLine!
+
+self nextLine!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:20:45' prior: 50651801!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line fileStream |
+	fileStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+	inputStream := ReadStream on: fileStream.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:20:55'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:20:55'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:25:18' prior: 50651962!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream  newCustomer line fileStream |
+	
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:25:34' prior: 50652010!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream newCustomer line |
+	
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:27:11'!
+importCustomers: anInputStream
+
+	"
+	self importCustomers
+	"
+	| inputStream newCustomer line |
+	
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:27:11' prior: 50651062!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers: anInputStream.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:27:11' prior: 50651848!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: anInputStream.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+
+!methodRemoval: ImportTest #importCustomers stamp: 'FK 11/14/2023 23:27:11'!
+importCustomers
+
+	"
+	self importCustomers
+	"
+	| inputStream newCustomer line |
+	
+	inputStream := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+		
+	session beginTransaction.
+	
+	line := inputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := inputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	
+	inputStream close.
+	!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:28:38' prior: 50652091!
+importCustomers: anInputStream
+
+	"
+	self importCustomers
+	"
+	|  newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+
+TestCase subclass: #ImportTest
+	instanceVariableNames: 'session input'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CustomerImporter'!
+
+!classDefinition: #ImportTest category: 'CustomerImporter' stamp: 'FK 11/14/2023 23:29:21'!
+TestCase subclass: #ImportTest
+	instanceVariableNames: 'session input'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CustomerImporter'!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:29:31' prior: 50650794 overrides: 16961394!
+setUp
+	input := UniFileStream new open: '/Users/fran/Documents/Facultad/Inge1/macos64/input.txt' forWrite: false.
+	session := DataBaseSession for: (Array with: Address with: Customer).
+! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:29:34'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:29:34'!
+ERROR!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:29:40' prior: 50652132!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert:  customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:29:44' prior: 50652168!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:29:50'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:29:51'!
+PASSED!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:31:02'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:31:04'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:31:37'!
+test03ImportCustomersAcceptsStreamString
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:32:01' prior: 50652403!
+test03ImportCustomersAcceptsStreamString
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+	input := ReadStream on: 'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA
+	'.
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+
+stream!
+
+stream := ReadStream on: 'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA
+	'.
+!
+
+stream := ReadStream on: 'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA
+	'.
+!
+
+stream := ReadStream on: 'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA
+	'.
+!
+
+stream!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:33:40' prior: 50652444!
+test03ImportCustomersAcceptsStreamString
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+	input := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA
+	'.
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+
+| stream nl c |
+
+stream := ReadStream on: 'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA
+	'.
+!
+
+stream!
+
+stream!
+
+self nextLine!
+
+self nextLine!
+
+stream := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA'.!
+
+stream!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+stream := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA'.!
+
+stream := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA'.!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/14/2023 23:38:15' prior: 50652512!
+test03ImportCustomersAcceptsStreamString
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.! !
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:38:32' prior: 50652299 overrides: 16961394!
+setUp
+	input := ReadStream on: 'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA'.
+	session := DataBaseSession for: (Array with: Address with: Customer).
+! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:38:36'!
+FAILURE!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:38:36'!
+FAILURE!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:38:50' prior: 50652631 overrides: 16961394!
+setUp
+	input := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444
+	A,San Martin,3322,Olivos,1636,BsAs
+	A,Maipu,888,Florida,1122,Buenos Aires
+	C,Juan,Perez,C,23-25666777-9
+	A,Alem,1122,CABA,1001,CABA'.
+	session := DataBaseSession for: (Array with: Address with: Customer).
+! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:38:55'!
+FAILURE!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:38:55'!
+FAILURE!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:39:17'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:39:17'!
+ERROR!
+
+!methodRemoval: ImportTest #test03ImportCustomersAcceptsStreamString stamp: 'FK 11/14/2023 23:39:22'!
+test03ImportCustomersAcceptsStreamString
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress province = 'BsAs' ] ofType: Address) anyOne.
+
+	self assert:  customer1FirstAddress streetName equals: 'San Martin'.
+	self assert: customer1FirstAddress streetNumber equals: 3322.
+	self assert: customer1FirstAddress town equals: 'Olivos'.
+	self assert: customer1FirstAddress zipCode equals: 1636.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress province = 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert:  customer1SecondAddress streetName equals: 'Maipu'.
+	self assert: customer1SecondAddress streetNumber equals: 888.
+	self assert: customer1SecondAddress town equals: 'Florida'.
+	self assert: customer1SecondAddress zipCode equals: 1122.
+	
+	customer2Address := (session select: [:anAddress | anAddress province = 'CABA' ] ofType: Address) anyOne.
+	
+	self assert:  customer2Address streetName equals: 'Alem'.
+	self assert: customer2Address streetNumber equals: 1122.
+	self assert: customer2Address town equals: 'CABA'.
+	self assert: customer2Address zipCode equals: 1001.!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+
+self nextLine!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:42:37' prior: 50652649 overrides: 16961394!
+setUp
+	| newLine |
+	newLine := Character newLineCharacter asString.
+	input := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444', newLine,
+	'A,San Martin,3322,Olivos,1636,BsAs',newLine,
+	'A,Maipu,888,Florida,1122,Buenos Aires',newLine,
+	'C,Juan,Perez,C,23-25666777-9',newLine.
+	session := DataBaseSession for: (Array with: Address with: Customer).
+! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:42:46'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:42:47'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:42:48'!
+ERROR!
+!ImportTest methodsFor: 'nil' stamp: 'FK 11/14/2023 23:44:48' prior: 50652721 overrides: 16961394!
+setUp
+	| newLine |
+	newLine := Character newLineCharacter asString.
+	input := ReadStream on: 
+	'C,Pepe,Sanchez,D,22333444', newLine,
+	'A,San Martin,3322,Olivos,1636,BsAs',newLine,
+	'A,Maipu,888,Florida,1122,Buenos Aires',newLine,
+	'C,Juan,Perez,C,23-25666777-9',newLine,
+	'A,Alem,1122,CABA,1001,CABA',newLine.
+	session := DataBaseSession for: (Array with: Address with: Customer).
+! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:44:56'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:44:57'!
+PASSED!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/14/2023 23:47:15'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/14/2023 23:47:16'!
+PASSED!
+
+----QUIT----(15 November 2023 00:43:31) CuisUniversity-5981.image priorSource: 10197292!
+
+----STARTUP---- (15 November 2023 19:30:20) as /Users/fran/Documents/Facultad/Inge1/macos64/CuisUniversity-5981.image!
+
+
+!classDefinition: #CustomerImporter category: 'CustomerImporter' stamp: 'FK 11/15/2023 19:36:56'!
+Object subclass: #CustomerImporter
+	instanceVariableNames: 'session anInputStream'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CustomerImporter'!
+!CustomerImporter class methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:36:56'!
+withSession: aSession fromInputStream: anAnInputStream
+	^self new initializeWithSession: aSession fromInputStream: anAnInputStream! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:36:56'!
+initializeWithSession: aSession fromInputStream: anAnInputStream
+	session := aSession.
+	anInputStream := anAnInputStream.! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:36:56'!
+fromStream
+
+	"
+	self importCustomers
+	"
+	|  newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:36:56' prior: 50652249!
+importCustomers: anInputStream
+	(CustomerImporter withSession: session fromInputStream: anInputStream) fromStream! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 19:37:14'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 19:37:17'!
+PASSED!
+
+----STARTUP---- (15 November 2023 19:39:09) as /Users/fran/Documents/Facultad/Inge1/macos64/CuisUniversity-5981.image!
+
+
+!classDefinition: #CustomerImporter category: 'CustomerImporter' stamp: 'FK 11/15/2023 19:40:28'!
+Object subclass: #CustomerImporter
+	instanceVariableNames: 'session anInputStream'
+	classVariableNames: ''
+	poolDictionaries: ''
+	category: 'CustomerImporter'!
+!CustomerImporter class methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:40:28'!
+withDBSession: aSession andInputStream: anAnInputStream
+	^self new initializeWithDBSession: aSession andInputStream: anAnInputStream! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:40:28'!
+initializeWithDBSession: aSession andInputStream: anAnInputStream
+	session := aSession.
+	anInputStream := anAnInputStream.! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:40:28'!
+doImport
+
+	"
+	self importCustomers
+	"
+	|  newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:40:28' prior: 50652249!
+importCustomers: anInputStream
+	(CustomerImporter withDBSession: session andInputStream: anInputStream) doImport! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:40:41' prior: 50652801!
+doImport
+	|  newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 19:40:51'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 19:40:52'!
+PASSED!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:42:48' prior: 50652845!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:47:03'!
+withFirstName: firstName withLastName: lastName
+
+	lastName firstName: firstName second.
+			lastName lastName: firstName third.
+			lastName identificationType: firstName fourth.
+			lastName identificationNumber: firstName fifth! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:47:03' prior: 50652887!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			self withFirstName: customerData withLastName: newCustomer.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:47:03' prior: 50652933!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			self withFirstName: customerData withLastName: newCustomer.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:47:03' prior: 50652964!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			self withFirstName: customerData withLastName: newCustomer.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:42:48' prior: 50652995!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:52:22'!
+addToNewCustomer: newCostumer fromCSVLine: customerData
+
+	newCostumer firstName: customerData second.
+			newCostumer lastName: customerData third.
+			newCostumer identificationType: customerData fourth.
+			newCostumer identificationNumber: customerData fifth! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:52:22' prior: 50653026!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			self addToNewCustomer: newCustomer fromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:52:55'!
+fromCSVLine: customerData addToNewCustomer: newCostumer
+
+	newCostumer firstName: customerData second.
+			newCostumer lastName: customerData third.
+			newCostumer identificationType: customerData fourth.
+			newCostumer identificationNumber: customerData fifth! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 19:52:55' prior: 50653073!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			self fromCSVLine: newCustomer addToNewCustomer: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+
+!methodRemoval: CustomerImporter #addToNewCustomer:fromCSVLine: stamp: 'FK 11/15/2023 19:52:55'!
+addToNewCustomer: newCostumer fromCSVLine: customerData
+
+	newCostumer firstName: customerData second.
+			newCostumer lastName: customerData third.
+			newCostumer identificationType: customerData fourth.
+			newCostumer identificationNumber: customerData fifth!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:42:48' prior: 50653116!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:55:36'!
+keyword1: newCustomer customerFromCSVLine: customerData
+
+	newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:55:36' prior: 50653159!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := Customer new.
+			self keyword1: newCustomer customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:56:50'!
+customerFromCSVLine: customerData
+	| newCustomer |
+	newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth! !
+
+!methodRemoval: CustomerImporter #fromCSVLine:addToNewCustomer: stamp: 'FK 11/15/2023 19:56:59'!
+fromCSVLine: customerData addToNewCustomer: newCostumer
+
+	newCostumer firstName: customerData second.
+			newCostumer lastName: customerData third.
+			newCostumer identificationType: customerData fourth.
+			newCostumer identificationNumber: customerData fifth!
+
+!methodRemoval: CustomerImporter #keyword1:customerFromCSVLine: stamp: 'FK 11/15/2023 19:57:03'!
+keyword1: newCustomer customerFromCSVLine: customerData
+
+	newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:57:14' prior: 50653206!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:57:28' prior: 50653237!
+customerFromCSVLine: customerData
+	| newCustomer |
+	newCustomer := Customer new.
+	newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:58:09' prior: 50653271!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress ].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:58:27' prior: 50653301!
+customerFromCSVLine: customerData
+	| newCustomer |
+	newCustomer := Customer new.
+	newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+	^newCustomer.! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 19:58:59' prior: 50653343!
+customerFromCSVLine: customerData
+	| newCustomer |
+	newCustomer := Customer new.
+	newCustomer firstName: customerData second.
+			newCustomer lastName: customerData third.
+			newCustomer identificationType: customerData fourth.
+			newCustomer identificationNumber: customerData fifth.
+	^newCustomer.! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:00:28' prior: 50653356!
+customerFromCSVLine: customerData
+	| newCustomer |
+	newCustomer := Customer 
+		withFirstName: customerData second 
+		lastName: customerData third
+		lastName: customerData third
+		identificationType: customerData fourth
+		identificationNumber: customerData fifth.
+	^newCustomer.! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:01:16' prior: 50653369!
+customerFromCSVLine: customerData
+	| newCustomer |
+	newCustomer := Customer 
+		named: customerData second 
+		surnamed: customerData third
+		withIdentificationType: customerData fourth
+		andIdentificationNumber: customerData fifth.
+	^newCustomer.! !
+!Customer class methodsFor: 'nil' stamp: 'FK 11/15/2023 20:03:25'!
+named: aName  surnamed: surname withIdentificationType: idType andIdentificationNumber: idNumber
+	^self initializeWithName: aName surname: surname withIdType: idType andIdNumber: idNumber.! !
+!Customer methodsFor: 'nil' stamp: 'FK 11/15/2023 20:04:45'!
+initializeWithName: aName surname: surname withIdType: idType andIdNumber: idNumber.
+	firstName := aName.
+	lastName := surname.
+	identificationType := idType.
+	identificationNumber := idNumber.! !
+!Customer class methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:05:15' prior: 50653391!
+named: aFirstName  surnamed: aLastName withIdentificationType: idType andIdentificationNumber: idNumber
+	^self initializeWithName: aFirstName surname: aLastName withIdType: idType andIdNumber: idNumber.! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:05:46' prior: 50653381!
+customerFromCSVLine: aCSVStringLineWithCustomerData
+	| newCustomer |
+	newCustomer := Customer 
+		named: aCSVStringLineWithCustomerData second 
+		surnamed: aCSVStringLineWithCustomerData third
+		withIdentificationType: aCSVStringLineWithCustomerData fourth
+		andIdentificationNumber: aCSVStringLineWithCustomerData fifth.
+	^newCustomer.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:07:19'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:07:19'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:08:24'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:08:28'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:08:28'!
+ERROR!
+!Customer class methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:08:54' prior: 50653409!
+named: aFirstName  surnamed: aLastName withIdentificationType: idType andIdentificationNumber: idNumber
+	^self new initializeWithName: aFirstName surname: aLastName withIdType: idType andIdNumber: idNumber.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:08:58'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:08:59'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:09:44' prior: 50652314!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert: customer1 firstName equals: 'Pepe'.
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:09:47'!
+PASSED!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:09:48'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:09:49'!
+PASSED!
+
+super initialize.!
+
+super initialize.!
+
+super initialize.!
+
+super initialize.!
+!Customer methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:11:02' prior: 50653399!
+initializeWithName: aName surname: surname withIdType: idType andIdNumber: idNumber.
+	super initialize.
+	firstName := aName.
+	lastName := surname.
+	identificationType := idType.
+	identificationNumber := idNumber.
+	addresses := OrderedCollection new.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:11:05'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:11:06'!
+PASSED!
+
+!methodRemoval: Customer #firstName: stamp: 'FK 11/15/2023 20:12:14'!
+firstName: aName
+
+	firstName := aName!
+!Customer methodsFor: 'identification' stamp: 'FK 11/15/2023 20:14:01'!
+identificationNumberIs: anIdentificationNumber
+
+	identificationNumber = anIdentificationNumber! !
+!Customer methodsFor: 'identification' stamp: 'FK 11/15/2023 20:14:06' prior: 50653531!
+identificationNumberIs: anIdentificationNumber
+
+	^identificationNumber = anIdentificationNumber! !
+
+!methodRemoval: Customer #identificationNumberIs: stamp: 'FK 11/15/2023 20:14:14'!
+identificationNumberIs: anIdentificationNumber
+
+	^identificationNumber = anIdentificationNumber!
+!Customer methodsFor: 'identification' stamp: 'FK 11/15/2023 20:14:38'!
+identificationNumberIs: anIdentificationNumber
+
+	identificationNumber := anIdentificationNumber! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:14:38' prior: 50652922!
+withFirstName: firstName withLastName: lastName
+
+	lastName firstName: firstName second.
+			lastName lastName: firstName third.
+			lastName identificationType: firstName fourth.
+			lastName identificationNumberIs: firstName fifth! !
+
+!methodRemoval: Customer #identificationNumber: stamp: 'FK 11/15/2023 20:14:38'!
+identificationNumber: anIdentificationNumber
+
+	identificationNumber := anIdentificationNumber!
+!Customer methodsFor: 'identification' stamp: 'FK 11/15/2023 20:14:47' prior: 50653548!
+identificationNumberIs: anIdentificationNumber
+
+	^identificationNumber = anIdentificationNumber! !
+!Customer methodsFor: 'identification' stamp: 'FK 11/15/2023 20:15:05'!
+identificationTypeIs: anIdentificationType
+
+	identificationType := anIdentificationType! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:15:05' prior: 50653555!
+withFirstName: firstName withLastName: lastName
+
+	lastName firstName: firstName second.
+			lastName lastName: firstName third.
+			lastName identificationTypeIs: firstName fourth.
+			lastName identificationNumberIs: firstName fifth! !
+
+!methodRemoval: Customer #identificationType: stamp: 'FK 11/15/2023 20:15:05'!
+identificationType: anIdentificationType
+
+	identificationType := anIdentificationType!
+!Customer methodsFor: 'identification' stamp: 'FK 11/15/2023 20:15:15' prior: 50653577!
+identificationTypeIs: anIdentificationType
+
+	^identificationType = anIdentificationType! !
+
+!methodRemoval: Customer #identificationType stamp: 'FK 11/15/2023 20:15:23'!
+identificationType
+
+	^identificationType !
+
+!methodRemoval: Customer #identificationNumber stamp: 'FK 11/15/2023 20:15:25'!
+identificationNumber
+
+	^identificationNumber !
+
+!methodRemoval: Customer #firstName stamp: 'FK 11/15/2023 20:15:41'!
+firstName
+
+	^firstName !
+!Customer methodsFor: 'addresses' stamp: 'FK 11/15/2023 20:17:07'!
+addresses: anAddress
+
+	^ addresses! !
+!DataBaseSession methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:17:07' prior: 50650732!
+persistAddressesOf: anObjectWithAddresses
+
+	anObjectWithAddresses addresses: hasAddress do: [ :anAddress | self persist: anAddress ]
+	! !
+
+!methodRemoval: Customer #addresses stamp: 'FK 11/15/2023 20:17:07'!
+addresses
+
+	^ addresses!
+!Customer methodsFor: 'addresses' stamp: 'FK 11/15/2023 20:17:16'!
+hasAddress: anAddress
+
+	^ addresses! !
+
+!methodRemoval: Customer #addresses: stamp: 'FK 11/15/2023 20:17:16'!
+addresses: anAddress
+
+	^ addresses!
+!Customer methodsFor: 'addresses' stamp: 'FK 11/15/2023 20:17:28' prior: 50653630!
+hasAddress: anAddress
+
+	^addresses includes: anAddress.! !
+
+!methodRemoval: Customer #initialize stamp: 'FK 11/15/2023 20:17:46'!
+initialize
+
+	super initialize.
+	addresses := OrderedCollection new.!
+
+!methodRemoval: Customer #lastName stamp: 'FK 11/15/2023 20:18:04'!
+lastName
+
+	^lastName !
+!Customer methodsFor: 'name' stamp: 'FK 11/15/2023 20:18:17'!
+lastNameIs: aLastName
+
+	lastName := aLastName
+! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:18:17' prior: 50653583!
+withFirstName: firstName withLastName: lastName
+
+	lastName firstName: firstName second.
+			lastName lastNameIs: firstName third.
+			lastName identificationTypeIs: firstName fourth.
+			lastName identificationNumberIs: firstName fifth! !
+
+!methodRemoval: Customer #lastName: stamp: 'FK 11/15/2023 20:18:18'!
+lastName: aLastName
+
+	lastName := aLastName
+!
+!Customer methodsFor: 'name' stamp: 'FK 11/15/2023 20:18:25' prior: 50653650!
+lastNameIs: aLastName
+
+	^lastName = aLastName
+! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:19:19' prior: 50653464!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert: (customer1 firstNameIs: 'Pepe').
+	self assert: customer1 lastName equals: 'Sanchez'.
+	self assert: customer1 identificationType equals: 'D'.
+	self assert: customer1 identificationNumber equals: '22333444'.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationType = 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  customer2 firstName equals: 'Juan'.
+	self assert: customer2 lastName equals: 'Perez'.
+	self assert: customer2 identificationType equals: 'C'.
+	self assert: customer2 identificationNumber equals: '23-25666777-9'.! !
+!Customer methodsFor: 'name' stamp: 'FK 11/15/2023 20:19:47'!
+firstNameIs: aFirstName
+
+	^firstName = aFirstName
+! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:21:34' prior: 50653674!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers|
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert: (customer1 firstNameIs: 'Pepe').
+	self assert: (customer1 lastNameIs: 'Sanchez').
+	self assert: (customer1 identificationTypeIs: 'D').
+	self assert: (customer1 identificationNumberIs: '22333444').
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9').! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:21:35'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:21:54'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:22:04'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:22:14'!
+ERROR!
+!Customer methodsFor: 'nil' stamp: 'FK 11/15/2023 20:24:02'!
+overAddressesDo: aClosure
+	addresses do: aClosure.! !
+!DataBaseSession methodsFor: 'persistence - private' stamp: 'FK 11/15/2023 20:24:15' prior: 50653620!
+persistAddressesOf: anObjectWithAddresses
+
+	anObjectWithAddresses overAddressesDo: [ :anAddress | self persist: anAddress ]
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:24:21'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:24:22'!
+PASSED!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:25:38' prior: 50653313!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth.
+			newCustomer addAddress: newAddress 
+			].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:25:47'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:25:48'!
+PASSED!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:26:21'!
+addressFromCSVLine: addressData addressToSet: newAddress
+
+	newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:26:21' prior: 50653778!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := Address new.
+			self addressFromCSVLine: addressData addressToSet: newAddress.
+			newCustomer addAddress: newAddress 
+			].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:28:31'!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth! !
+
+!methodRemoval: CustomerImporter #addressFromCSVLine:addressToSet: stamp: 'FK 11/15/2023 20:28:34'!
+addressFromCSVLine: addressData addressToSet: newAddress
+
+	newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:29:44' prior: 50653827!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := 			self addressFromCSVLine: addressData.
+			newCustomer addAddress: newAddress.
+			].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:31:16' prior: 50653877!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := 			self addressFromCSVLine: addressData.
+			newCustomer addAddress: newAddress.
+		].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:31:22'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:31:23'!
+ERROR!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:31:45' prior: 50653851!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetName: addressData second.
+			newAddress streetNumber: addressData third asNumber .
+			newAddress town: addressData fourth.
+			newAddress zipCode: addressData fifth asNumber .
+			newAddress province: addressData sixth
+	^newAddress.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:31:46'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:31:46'!
+ERROR!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:32:33' prior: 50653931!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetName: addressData second.
+	newAddress streetNumber: addressData third asNumber .
+	newAddress town: addressData fourth.
+	newAddress zipCode: addressData fifth asNumber .
+	newAddress province: addressData sixth
+	^newAddress.! !
+
+!methodRemoval: CustomerImporter #withFirstName:withLastName: stamp: 'FK 11/15/2023 20:33:02'!
+withFirstName: firstName withLastName: lastName
+
+	lastName firstName: firstName second.
+			lastName lastNameIs: firstName third.
+			lastName identificationTypeIs: firstName fourth.
+			lastName identificationNumberIs: firstName fifth!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:33:04'!
+ERROR!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:33:04'!
+ERROR!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:33:09'!
+ERROR!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:33:19' prior: 50653951!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetName: addressData second.
+	newAddress streetNumber: addressData third asNumber .
+	newAddress town: addressData fourth.
+	newAddress zipCode: addressData fifth asNumber .
+	newAddress province: addressData sixth.
+	^newAddress.! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:33:24'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:33:26'!
+PASSED!
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:36:27' prior: 50653901!
+doImport
+	| newCustomer line |
+			
+	session beginTransaction.
+	
+	line := anInputStream nextLine.
+	[ line notNil ] whileTrue: [
+		(line beginsWith: 'C') ifTrue: [ | customerData |
+			(newCustomer isNil) ifFalse: [ session persist: newCustomer ].
+			customerData := line findTokens: $,.
+			newCustomer := self customerFromCSVLine: customerData.
+			].
+
+		(line beginsWith: 'A') ifTrue: [ | addressData newAddress |
+			addressData := line findTokens: $,.
+			newAddress := 			self addressFromCSVLine: addressData.
+			newCustomer addAddress: newAddress.
+		].
+
+		line := anInputStream nextLine. ].
+	session persist: newCustomer.
+	
+
+	anInputStream close.
+	! !
+!Address class methodsFor: 'nil' stamp: 'FK 11/15/2023 20:39:01'!
+streetName: aStreetName streetNumber: aStreetNumber town: aTown zipCode: aZipCode province: aProvince
+	^self new initializeWithStreetName: aStreetName streetNumber: aStreetNumber town: aTown zipCode: aZipCode province: aProvince.! !
+!Address methodsFor: 'street' stamp: 'FK 11/15/2023 20:40:29'!
+initializeWithStreetName: aStreetName streetNumber: aStreetNumber town: aTown zipCode: aZipCode province: aProvince
+	streetName := aStreetName.
+	streetNumber := aStreetNumber.
+	town := aTown.
+	zipCode := aZipCode.
+	province := aProvince.! !
+
+!methodRemoval: Address #province stamp: 'FK 11/15/2023 20:41:15'!
+province
+
+	^province!
+
+!methodRemoval: Address #streetName stamp: 'FK 11/15/2023 20:41:19'!
+streetName
+
+	^streetName !
+
+!methodRemoval: Address #streetNumber stamp: 'FK 11/15/2023 20:41:22'!
+streetNumber
+
+	^streetNumber !
+
+!methodRemoval: Address #town stamp: 'FK 11/15/2023 20:41:25'!
+town
+
+	^town!
+
+!methodRemoval: Address #zipCode stamp: 'FK 11/15/2023 20:41:28'!
+zipCode
+
+	^zipCode!
+!Address methodsFor: 'province' stamp: 'FK 11/15/2023 20:41:42'!
+provinceIs: aProvince
+
+	province := aProvince
+	! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:41:42' prior: 50653984!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetName: addressData second.
+	newAddress streetNumber: addressData third asNumber .
+	newAddress town: addressData fourth.
+	newAddress zipCode: addressData fifth asNumber .
+	newAddress provinceIs: addressData sixth.
+	^newAddress.! !
+
+!methodRemoval: Address #province: stamp: 'FK 11/15/2023 20:41:42'!
+province: aProvince
+
+	province := aProvince
+	!
+!Address methodsFor: 'province' stamp: 'FK 11/15/2023 20:41:48' prior: 50654061!
+provinceIs: aProvince
+
+	^province = aProvince
+	! !
+!Address methodsFor: 'street' stamp: 'FK 11/15/2023 20:42:05'!
+streetNumberIs: aStreetNumber
+
+	streetNumber := aStreetNumber ! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:42:05' prior: 50654066!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetName: addressData second.
+	newAddress streetNumberIs: addressData third asNumber .
+	newAddress town: addressData fourth.
+	newAddress zipCode: addressData fifth asNumber .
+	newAddress provinceIs: addressData sixth.
+	^newAddress.! !
+
+!methodRemoval: Address #streetNumber: stamp: 'FK 11/15/2023 20:42:05'!
+streetNumber: aStreetNumber
+
+	streetNumber := aStreetNumber !
+!Address methodsFor: 'street' stamp: 'FK 11/15/2023 20:42:11' prior: 50654087!
+streetNumberIs: aStreetNumber
+
+	^streetNumber = aStreetNumber ! !
+!Address methodsFor: 'street' stamp: 'FK 11/15/2023 20:42:24'!
+streetNameIs: aStreetName
+
+	streetName := aStreetName ! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:42:24' prior: 50654093!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetNameIs: addressData second.
+	newAddress streetNumberIs: addressData third asNumber .
+	newAddress town: addressData fourth.
+	newAddress zipCode: addressData fifth asNumber .
+	newAddress provinceIs: addressData sixth.
+	^newAddress.! !
+
+!methodRemoval: Address #streetName: stamp: 'FK 11/15/2023 20:42:24'!
+streetName: aStreetName
+
+	streetName := aStreetName !
+!Address methodsFor: 'street' stamp: 'FK 11/15/2023 20:42:29' prior: 50654115!
+streetNameIs: aStreetName
+
+	^streetName = aStreetName ! !
+!Address methodsFor: 'town' stamp: 'FK 11/15/2023 20:42:52'!
+townIs: aTown
+
+	town := aTown! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:42:52' prior: 50654120!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetNameIs: addressData second.
+	newAddress streetNumberIs: addressData third asNumber .
+	newAddress townIs: addressData fourth.
+	newAddress zipCode: addressData fifth asNumber .
+	newAddress provinceIs: addressData sixth.
+	^newAddress.! !
+
+!methodRemoval: Address #town: stamp: 'FK 11/15/2023 20:42:52'!
+town: aTown
+
+	town := aTown!
+!Address methodsFor: 'town' stamp: 'FK 11/15/2023 20:42:58' prior: 50654141!
+townIs: aTown
+
+	^town = aTown! !
+!Address methodsFor: 'zip code' stamp: 'FK 11/15/2023 20:43:11'!
+zipCodeIs: aZipCode
+
+	zipCode := aZipCode! !
+!CustomerImporter methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:43:11' prior: 50654146!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address new.
+	newAddress streetNameIs: addressData second.
+	newAddress streetNumberIs: addressData third asNumber .
+	newAddress townIs: addressData fourth.
+	newAddress zipCodeIs: addressData fifth asNumber .
+	newAddress provinceIs: addressData sixth.
+	^newAddress.! !
+
+!methodRemoval: Address #zipCode: stamp: 'FK 11/15/2023 20:43:11'!
+zipCode: aZipCode
+
+	zipCode := aZipCode!
+!Address methodsFor: 'zip code' stamp: 'FK 11/15/2023 20:43:17' prior: 50654166!
+zipCodeIs: aZipCode
+
+	^zipCode = aZipCode! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:45:16' prior: 50654171!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address
+			streetName: addressData second
+			streetNumber: addressData third asNumber
+			town: addressData fourth
+			zipCode: addressData fifth asNumber
+			province: addressData sixth.
+	^newAddress.! !
+!CustomerImporter methodsFor: 'evaluating' stamp: 'FK 11/15/2023 20:45:50' prior: 50654193!
+addressFromCSVLine: addressData 
+	| newAddress| 
+	newAddress := Address
+		streetName: addressData second
+		streetNumber: addressData third asNumber
+		town: addressData fourth
+		zipCode: addressData fifth asNumber
+		province: addressData sixth.
+	^newAddress.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:48:01' prior: 50652350!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress provinceIs: 'BsAs' ] ofType: Address) anyOne.
+
+	self assert: (customer1FirstAddress streetNameIs: 'San Martin').
+	self assert: (customer1FirstAddress streetNumberIs: 3322).
+	self assert: (customer1FirstAddress townIs: 'Olivos').
+	self assert: (customer1FirstAddress zipCodeIs: 1636).
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress provinceIs: 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert: (customer1SecondAddress streetNameIs: 'Maipu').
+	self assert: (customer1SecondAddress streetNumberIs: 888).
+	self assert: (customer1SecondAddress townIs: 'Florida').
+	self assert: (customer1SecondAddress zipCodeIs: 1122).
+	
+	customer2Address := (session select: [:anAddress | anAddress provinceIs: 'CABA' ] ofType: Address) anyOne.
+	
+	self assert: (customer2Address streetNameIs: 'Alem').
+	self assert: (customer2Address streetNumberIs: 1122).
+	self assert: (customer2Address townIs: 'CABA').
+	self assert: (customer2Address zipCodeIs: 1001).! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 20:48:08'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 20:48:09'!
+PASSED!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:50:27' prior: 50653713!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers  customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert: (customer1 firstNameIs: 'Pepe').
+	self assert: (customer1 lastNameIs: 'Sanchez').
+	self assert: (customer1 identificationTypeIs: 'D').
+	self assert: (customer1 identificationNumberIs: '22333444').
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:50:31' prior: 50654263!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assert: (customer1 firstNameIs: 'Pepe').
+	self assert: (customer1 lastNameIs: 'Sanchez').
+	self assert: (customer1 identificationTypeIs: 'D').
+	self assert: (customer1 identificationNumberIs: '22333444').
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:51:38'!
+keyword1: customer
+
+	self assert: (customer firstNameIs: 'Pepe').
+	self assert: (customer lastNameIs: 'Sanchez').
+	self assert: (customer identificationTypeIs: 'D').
+	self assert: (customer identificationNumberIs: '22333444')! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:51:38' prior: 50654298!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self keyword1: customer1.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:52:14'!
+keyword2: customer2
+
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9')! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:52:14' prior: 50654343!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self keyword1: customer1.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self keyword2: customer2.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:52:52'!
+assertFirstCustomerData: customer
+
+	self assert: (customer firstNameIs: 'Pepe').
+	self assert: (customer lastNameIs: 'Sanchez').
+	self assert: (customer identificationTypeIs: 'D').
+	self assert: (customer identificationNumberIs: '22333444')! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:52:52' prior: 50654383!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assertFirstCustomerData: customer1.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self keyword2: customer2.! !
+
+!methodRemoval: ImportTest #keyword1: stamp: 'FK 11/15/2023 20:52:52'!
+keyword1: customer
+
+	self assert: (customer firstNameIs: 'Pepe').
+	self assert: (customer lastNameIs: 'Sanchez').
+	self assert: (customer identificationTypeIs: 'D').
+	self assert: (customer identificationNumberIs: '22333444')!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:53:26'!
+assertSecondCustomerDataIsCorrect: customer2
+
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9')! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:53:26' prior: 50654417!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assertFirstCustomerData: customer1.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assertSecondCustomerDataIsCorrect: customer2.! !
+
+!methodRemoval: ImportTest #keyword2: stamp: 'FK 11/15/2023 20:53:26'!
+keyword2: customer2
+
+	self assert:  (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9')!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:53:41'!
+assertFirstCustomerDataIsCorrect: customer
+
+	self assert: (customer firstNameIs: 'Pepe').
+	self assert: (customer lastNameIs: 'Sanchez').
+	self assert: (customer identificationTypeIs: 'D').
+	self assert: (customer identificationNumberIs: '22333444')! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:53:41' prior: 50654462!
+test01ImportAndCheckEveryCustomer
+	| numberOfCustomers customer1 customer2 customers |
+	self importCustomers: input.
+	
+	numberOfCustomers := (session selectAllOfType: Customer) size.
+	self assert: numberOfCustomers equals: 2.
+
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'D'] ofType: Customer.
+	self assert: customers size equals: 1.
+	
+	customer1 := customers anyOne.
+	self assertFirstCustomerDataIsCorrect: customer1.
+	
+	customers := session select: [ :aCustomer | aCustomer identificationTypeIs: 'C'] ofType: Customer.
+	self assert: customers size equals: 1.
+
+	customer2 := customers anyOne.
+	self assertSecondCustomerDataIsCorrect: customer2.! !
+
+!methodRemoval: ImportTest #assertFirstCustomerData: stamp: 'FK 11/15/2023 20:53:41'!
+assertFirstCustomerData: customer
+
+	self assert: (customer firstNameIs: 'Pepe').
+	self assert: (customer lastNameIs: 'Sanchez').
+	self assert: (customer identificationTypeIs: 'D').
+	self assert: (customer identificationNumberIs: '22333444')!
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:53:49' prior: 50654450!
+assertSecondCustomerDataIsCorrect: customer2
+
+	self assert: (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9')! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:53:53' prior: 50654542!
+assertSecondCustomerDataIsCorrect: customer2
+
+	self assert: (customer2 firstNameIs:  'Juan').
+	self assert: (customer2 lastNameIs: 'Perez').
+	self assert: (customer2 identificationTypeIs: 'C').
+	self assert: (customer2 identificationNumberIs: '23-25666777-9').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:54:00' prior: 50654496!
+assertFirstCustomerDataIsCorrect: customer
+
+	self assert: (customer firstNameIs: 'Pepe').
+	self assert: (customer lastNameIs: 'Sanchez').
+	self assert: (customer identificationTypeIs: 'D').
+	self assert: (customer identificationNumberIs: '22333444').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:55:32'!
+assertFirstAddressOfFirstCustomerIsCorrect: customer1FirstAddress
+
+	self assert: (customer1FirstAddress streetNameIs: 'San Martin').
+	self assert: (customer1FirstAddress streetNumberIs: 3322).
+	self assert: (customer1FirstAddress townIs: 'Olivos').
+	self assert: (customer1FirstAddress zipCodeIs: 1636)! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:55:33' prior: 50654217!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress provinceIs: 'BsAs' ] ofType: Address) anyOne.
+
+	self assertFirstAddressOfFirstCustomerIsCorrect: customer1FirstAddress.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress provinceIs: 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assert: (customer1SecondAddress streetNameIs: 'Maipu').
+	self assert: (customer1SecondAddress streetNumberIs: 888).
+	self assert: (customer1SecondAddress townIs: 'Florida').
+	self assert: (customer1SecondAddress zipCodeIs: 1122).
+	
+	customer2Address := (session select: [:anAddress | anAddress provinceIs: 'CABA' ] ofType: Address) anyOne.
+	
+	self assert: (customer2Address streetNameIs: 'Alem').
+	self assert: (customer2Address streetNumberIs: 1122).
+	self assert: (customer2Address townIs: 'CABA').
+	self assert: (customer2Address zipCodeIs: 1001).! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:56:02'!
+assertSecondAddressOfFirstCustomerIsCorrect: customer1SecondAddress
+
+	self assert: (customer1SecondAddress streetNameIs: 'Maipu').
+	self assert: (customer1SecondAddress streetNumberIs: 888).
+	self assert: (customer1SecondAddress townIs: 'Florida').
+	self assert: (customer1SecondAddress zipCodeIs: 1122)! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:56:02' prior: 50654590!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress provinceIs: 'BsAs' ] ofType: Address) anyOne.
+
+	self assertFirstAddressOfFirstCustomerIsCorrect: customer1FirstAddress.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress provinceIs: 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assertSecondAddressOfFirstCustomerIsCorrect: customer1SecondAddress.
+	
+	customer2Address := (session select: [:anAddress | anAddress provinceIs: 'CABA' ] ofType: Address) anyOne.
+	
+	self assert: (customer2Address streetNameIs: 'Alem').
+	self assert: (customer2Address streetNumberIs: 1122).
+	self assert: (customer2Address townIs: 'CABA').
+	self assert: (customer2Address zipCodeIs: 1001).! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:56:39'!
+assertAddressOfSecondCustomerIsCorrect: customer2Address
+
+	self assert: (customer2Address streetNameIs: 'Alem').
+	self assert: (customer2Address streetNumberIs: 1122).
+	self assert: (customer2Address townIs: 'CABA').
+	self assert: (customer2Address zipCodeIs: 1001)! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:56:39' prior: 50654637!
+test02CheckAddressOfBothCustomers
+	| customer1FirstAddress customer1SecondAddress customer2Address |.
+
+	self importCustomers: input.
+		
+	customer1FirstAddress := (session select: [:anAddress | anAddress provinceIs: 'BsAs' ] ofType: Address) anyOne.
+
+	self assertFirstAddressOfFirstCustomerIsCorrect: customer1FirstAddress.
+	
+	customer1SecondAddress := (session select: [:anAddress | anAddress provinceIs: 'Buenos Aires' ] ofType: Address) anyOne.
+	
+	self assertSecondAddressOfFirstCustomerIsCorrect: customer1SecondAddress.
+	
+	customer2Address := (session select: [:anAddress | anAddress provinceIs: 'CABA' ] ofType: Address) anyOne.
+	
+	self assertAddressOfSecondCustomerIsCorrect: customer2Address.! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:57:52' prior: 50654577!
+assertFirstAddressOfFirstCustomerIsCorrect: customer1FirstAddress
+
+	self assert: (customer1FirstAddress streetNameIs: 'San Martin').
+	self assert: (customer1FirstAddress streetNumberIs: 3322).
+	self assert: (customer1FirstAddress townIs: 'Olivos').
+	self assert: (customer1FirstAddress zipCodeIs: 1636).
+	self assert: (customer1FirstAddress provinceIs: 'BsAs').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:58:25' prior: 50654624!
+assertSecondAddressOfFirstCustomerIsCorrect: customer1SecondAddress
+
+	self assert: (customer1SecondAddress streetNameIs: 'Maipu').
+	self assert: (customer1SecondAddress streetNumberIs: 888).
+	self assert: (customer1SecondAddress townIs: 'Florida').
+	self assert: (customer1SecondAddress zipCodeIs: 1122).
+	self assert: (customer1SecondAddress provinceIs: 'Buenos Aires').! !
+!ImportTest methodsFor: 'as yet unclassified' stamp: 'FK 11/15/2023 20:58:43' prior: 50654666!
+assertAddressOfSecondCustomerIsCorrect: customer2Address
+
+	self assert: (customer2Address streetNameIs: 'Alem').
+	self assert: (customer2Address streetNumberIs: 1122).
+	self assert: (customer2Address townIs: 'CABA').
+	self assert: (customer2Address zipCodeIs: 1001).
+	self assert: (customer2Address provinceIs: 'CABA').! !
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 21:01:04'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 21:01:05'!
+PASSED!
+
+----SNAPSHOT----(15 November 2023 21:07:21) CuisUniversity-5981.image priorSource: 10275884!
+
+----SNAPSHOT----(15 November 2023 21:07:24) CuisUniversity-5981.image priorSource: 10339240!
+
+!testRun: #ImportTest #test01ImportAndCheckEveryCustomer stamp: 'FK 11/15/2023 21:07:27'!
+PASSED!
+
+!testRun: #ImportTest #test02CheckAddressOfBothCustomers stamp: 'FK 11/15/2023 21:07:28'!
+PASSED!
+
+----SNAPSHOT----(15 November 2023 21:07:33) CuisUniversity-5981.image priorSource: 10339334!
